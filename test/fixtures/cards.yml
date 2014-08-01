@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  short_desc: MyString
+  long_desc: MyText
+  category: MyString
+  readiness: 9.99
+  photo: MyString
+
+two:
+  name: MyString
+  short_desc: MyString
+  long_desc: MyText
+  category: MyString
+  readiness: 9.99
+  photo: MyString
