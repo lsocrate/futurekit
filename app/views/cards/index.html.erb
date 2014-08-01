@@ -1,35 +1,66 @@
-<h1>Listing cards</h1>
+<div id="container">
+<aside>
+     <div id="sidebar">
+         <h1 class="title">Futurekit <h1>
+           
+    
+            <div class="col-md-12">
+           
+            <input type="text" placeholder="Search..." class="form-control" ng-model="search.name">
+           <br>
+               <a href="#" class="btn btn-default btn-block">Agriculture</a>
+               <a href="#" class="btn btn-default btn-block">Biomedical</a>
+               <a href="#" class="btn btn-default btn-block">Displays</a>
+               <a href="#" class="btn btn-default btn-block">Electronics</a>
+               <a href="#" class="btn btn-default btn-block">Energy</a>
+               <a href="#" class="btn btn-default btn-block">Communications</a>
+               <a href="#" class="btn btn-default btn-block">Manufacturing</a>
+               <a href="#" class="btn btn-default btn-block">Materials</a>
+               <a href="#" class="btn btn-default btn-block">Military</a>
+               <a href="#" class="btn btn-default btn-block">Neuroscience</a>
+               <a href="#" class="btn btn-default btn-block">Robotics</a>
+               <a href="#" class="btn btn-default btn-block">Transport</a>
+               <a href="#" class="btn btn-default btn-block">Space</a>
+               <a href="#" class="btn btn-default btn-block">Social</a>
+               <a href="#" class="btn btn-default btn-block">Other</a>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Short desc</th>
-      <th>Long desc</th>
-      <th>Category</th>
-      <th>Readiness</th>
-      <th>Photo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+            </div>
 
-  <tbody>
-    <% @cards.each do |card| %>
-      <tr>
-        <td><%= card.name %></td>
-        <td><%= card.short_desc %></td>
-        <td><%= card.long_desc %></td>
-        <td><%= card.category %></td>
-        <td><%= card.readiness %></td>
-        <td><%= card.photo %></td>
-        <td><%= link_to 'Show', card %></td>
-        <td><%= link_to 'Edit', edit_card_path(card) %></td>
-        <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        
+     
+     </div>
+</aside>
+<div class="row" id="main-content">
+        <div class="col-sm-12 col-lg-12">
+        
 
-<br>
+<% @cards.each do |card| %>
+  <div class="col-md-4 col-sm-6" >
+             <div class="card-container">
+          
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                             <img src="<%= card.photo %>">
+                        </div>
+                
+                        <div class="content">
+                            <div class="main">
+                                <h3 class="name"> <%= card.name %></h3>
+                              
+                                <p class="description"><%= card.short_desc %></p>
+                            </div>
+                          
+                        </div>
+                    </div> 
+                  
+                </div>
+       </div>
+      </div>
 
-<%= link_to 'New Card', new_card_path %>
+       <% end %>
+
+            </div> <!-- end card-container -->
+        </div> <!-- end col sm 3 -->
+       
+    </div> 
