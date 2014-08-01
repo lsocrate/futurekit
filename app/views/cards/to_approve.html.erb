@@ -1,0 +1,37 @@
+<div id="container">
+<div class="row" id="main-content">
+        <div class="col-sm-12 col-lg-12">
+        
+
+<% @cards.each do |card| %>
+  <div class="col-md-4 col-sm-6" >
+             <div class="card-container">
+          
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                             <img src="<%= card.photo %>">
+                        </div>
+                
+                        <div class="content">
+                            <div class="main">
+                                <h3 class="name"> <%= card.name %></h3>
+                              
+                                <p class="description"><%= card.short_desc %></p>
+                                <%= link_to 'Approve', approve_path(@card) %> |
+
+                            </div>
+                          
+                        </div>
+                    </div> 
+                  
+                </div>
+       </div>
+      </div>
+
+       <% end %>
+
+            </div> <!-- end card-container -->
+        </div> <!-- end col sm 3 -->
+       
+    </div> 

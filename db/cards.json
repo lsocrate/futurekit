@@ -1,0 +1,12 @@
+
+    {
+    name: "3D Display",
+    description: "Also known as stereo display, which conveys depth perception through binocular vision, or offsetting images for the right and left eyes. ",
+    "image": "photos/3D_Display.jpg"
+    }
+    ,
+    {
+        name: "Aerial Wireless Network",
+        description: "Solves the problem of limited internet access across the globe with balloon systems or drones.",
+        "image": "photos/Aerial Wireless Network.jpg"}
+    }

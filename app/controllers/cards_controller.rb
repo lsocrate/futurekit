@@ -4,7 +4,7 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.all
+    @cards = Card.where(approved: true)
   end
 
   # GET /cards/1
@@ -21,6 +21,19 @@ class CardsController < ApplicationController
   def edit
   end
 
+  def to_approve
+    @cards = Card.where(approved: nil)
+  end
+
+  def approve
+    @card.approved = true
+    @card.commit
+    respond_to do |format|
+      format.html { redirect_to cards_url, notice: 'Card was successfully approved.' }
+      format.json { head :no_content }
+    end
+  end
+
   # POST /cards
   # POST /cards.json
   def create
@@ -28,7 +41,7 @@ class CardsController < ApplicationController
 
     respond_to do |format|
       if @card.save
-        format.html { redirect_to @card, notice: 'Card was successfully created.' }
+        format.html { redirect_to @card, notice: 'Card was successfully addd to our submission list.' }
         format.json { render :show, status: :created, location: @card }
       else
         format.html { render :new }
@@ -69,6 +82,6 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:name, :short_desc, :long_desc, :category, :readiness, :photo)
+      params.require(:card).permit(:name, :short_desc, :long_desc, :category, :readiness, :photo, :approved)
     end
 end
