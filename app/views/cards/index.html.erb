@@ -1,64 +1,44 @@
 <div id="container">
-<aside>
-     <div id="sidebar">
-           <div class="col-md-12">
-           <br>
- <pre>Categories coming soon..</pre>
-<!--
-           <br>
-               <a href="#" class="btn btn-default btn-block">Agriculture</a>
-               <a href="#" class="btn btn-default btn-block">Biomedical</a>
-               <a href="#" class="btn btn-default btn-block">Displays</a>
-               <a href="#" class="btn btn-default btn-block">Electronics</a>
-               <a href="#" class="btn btn-default btn-block">Energy</a>
-               <a href="#" class="btn btn-default btn-block">Communications</a>
-               <a href="#" class="btn btn-default btn-block">Manufacturing</a>
-               <a href="#" class="btn btn-default btn-block">Materials</a>
-               <a href="#" class="btn btn-default btn-block">Military</a>
-               <a href="#" class="btn btn-default btn-block">Neuroscience</a>
-               <a href="#" class="btn btn-default btn-block">Robotics</a>
-               <a href="#" class="btn btn-default btn-block">Transport</a>
-               <a href="#" class="btn btn-default btn-block">Space</a>
-               <a href="#" class="btn btn-default btn-block">Social</a>
-               <a href="#" class="btn btn-default btn-block">Other</a>
-               -->
-            </div>
-     </div>
-</aside>
-<div class="row" id="main-content">
-        <div class="col-sm-12 col-lg-12">
-        
+<%= render partial:"layouts/sidebar" %>
+  <div class="row" id="main-content">
+    <div class="col-sm-12 col-lg-12">
+      <% @cards.each do |card| %>
+      <div class="col-md-4 col-sm-6" >
 
-<% @cards.each do |card| %>
-  <div class="col-md-4 col-sm-6" >
-             <div class="card-container">
-          
-                <div class="card">
-                    <div class="front">
-                        <div class="cover">
-                             <img src="<%= card.photo %>">
-                        </div>
-                
-                        <div class="content">
-                            <div class="main">
-                                <h3 class="name"> <%= card.name %></h3>
-                              
-                                <p class="description"><%= card.short_desc %></p>
-                            </div>
-                          
-                        </div>
-                    </div> 
-                  
+        <a href="<%= card_path(card) %>" data-toggle="modal" data-target="#myModal" data-remote="true">
+          <div class="card-container">
+            <div class="card">
+              <div class="front">
+                <div class="cover">
+                  <img src="<%= card.photo %>">
                 </div>
-       </div>
+                <div class="content">
+                  <div class="main">
+                    <h3 class="name"> <%= card.name %></h3>
+                    <p class="description"><%= card.short_desc %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <% end %>
+      <%= will_paginate @cards %>
+      </div> <!-- end card-container -->
+      </div> <!-- end col sm 3 -->
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+           
+            <div class="modal-body">
+              Loading...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
       </div>
-
-       <% end %>
-
-       <%= will_paginate @cards %>
-
-
-            </div> <!-- end card-container -->
-        </div> <!-- end col sm 3 -->
-       
-    </div> 
+    </div>
