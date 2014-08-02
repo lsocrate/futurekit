@@ -12,7 +12,7 @@ gem 'rmagick' #image processing
 gem 'carrierwave' #file uploads
 gem 'paper_trail', '~> 3.0.3' #versioning of the cards
 gem 'globalize', '~> 4.0.2' #will be needed for translations
-gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'

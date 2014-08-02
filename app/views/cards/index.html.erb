@@ -3,7 +3,7 @@
   <div class="row" id="main-content">
     <div class="col-sm-12 col-lg-12">
       <% @cards.each do |card| %>
-      <div class="col-md-4 col-sm-6" >
+      <div class="col-md-3 col-sm-6" >
 
         <a href="<%= card_path(card) %>" data-toggle="modal" data-target="#myModal" data-remote="true">
           <div class="card-container">
@@ -24,7 +24,9 @@
         </div>
       </a>
       <% end %>
-      <%= will_paginate @cards %>
+      <div class="row text-center">
+      <%= will_paginate @cards, renderer: BootstrapPagination::Rails %>
+      </div>
       </div> <!-- end card-container -->
       </div> <!-- end col sm 3 -->
       <!-- Modal -->
