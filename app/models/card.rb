@@ -5,6 +5,11 @@ class Card < ActiveRecord::Base
 
 	has_paper_trail
 
+	has_many :categories
+	accepts_nested_attributes_for :categories
+
+	
+
 def self.search(query)
 	puts "searching..."
   where("name like ?", "%#{query}%") 

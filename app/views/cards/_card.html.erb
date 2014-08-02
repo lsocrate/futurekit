@@ -4,7 +4,7 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @card.category %>
+  <%= Category.find(@card.category_id).name if @card.category_id? %>
 </p>
 
 <p>

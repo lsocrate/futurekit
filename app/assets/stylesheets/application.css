@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require font-awesome
  *= require_self
  */
 
@@ -24,6 +25,7 @@
  .navbar-inverse .navbar-brand {
  	color: #fff;
  }
+
  .navbar-brand strong{
  	letter-spacing: 2px;
  }

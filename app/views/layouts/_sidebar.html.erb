@@ -2,24 +2,11 @@
     <div id="sidebar">
       <div class="col-md-12">
         <br>
-        <!--
-        <br>
-        <a href="#" class="btn btn-default btn-block">Agriculture</a>
-        <a href="#" class="btn btn-default btn-block">Biomedical</a>
-        <a href="#" class="btn btn-default btn-block">Displays</a>
-        <a href="#" class="btn btn-default btn-block">Electronics</a>
-        <a href="#" class="btn btn-default btn-block">Energy</a>
-        <a href="#" class="btn btn-default btn-block">Communications</a>
-        <a href="#" class="btn btn-default btn-block">Manufacturing</a>
-        <a href="#" class="btn btn-default btn-block">Materials</a>
-        <a href="#" class="btn btn-default btn-block">Military</a>
-        <a href="#" class="btn btn-default btn-block">Neuroscience</a>
-        <a href="#" class="btn btn-default btn-block">Robotics</a>
-        <a href="#" class="btn btn-default btn-block">Transport</a>
-        <a href="#" class="btn btn-default btn-block">Space</a>
-        <a href="#" class="btn btn-default btn-block">Social</a>
-        <a href="#" class="btn btn-default btn-block">Other</a>
-        -->
+        <ul class="nav nav-pills nav-stacked">
+       	<% Category.all.each do |cat| %>
+        	<li><a href="/categories/<%= cat.id %>"><%= cat.name %></a></li>
+        <% end %>
+        </ul>
       </div>
     </div>
   </aside>

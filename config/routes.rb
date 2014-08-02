@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :categories
+
   resources :cards
   root 'cards#index'
   get 'approve' => 'cards#approve'

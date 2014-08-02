@@ -1,7 +1,12 @@
 body {
-	font-family: "Helvetica Nueue",Arial,Verdana,sans-serif;
+	font-family: "Roboto",Arial,Verdana,sans-serif;
 	background-color: #E5E9ED;
     margin-top:60px;
+}
+
+a {
+color: #999;
+text-decoration: none;
 }
 
 .card-bg{
@@ -75,7 +80,7 @@ body {
 }
 
 .description{
-    height: 100px;
+    height: 60px;
     overflow: auto;
 }
 

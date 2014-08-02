@@ -1,4 +1,48 @@
-
+Category.create(
+	name: "Agriculture"
+)
+Category.create(
+	name: "Biomedical"
+)
+Category.create(
+	name: "Displays"
+)
+Category.create(
+	name: "Electronics"
+)
+Category.create(
+	name: "Energy"
+)
+Category.create(
+	name: "Communications"
+)
+Category.create(
+	name: "Manufacturing"
+)
+Category.create(
+	name: "Materials"
+)
+Category.create(
+	name: "Military"
+)
+Category.create(
+	name: "Neuroscience"
+)
+Category.create(
+	name: "Robotics"
+)	
+Category.create(
+	name: "Transport"
+)	
+Category.create(
+	name: "Space"
+)	    
+Category.create(
+	name: "Social"
+)	    
+Category.create(
+	name: "Other"
+)
 
 Card.create(
 name: "3D Display",
