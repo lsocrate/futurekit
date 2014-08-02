@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
+ .navbar-inverse{
+ 	font-family: Roboto, Helvetica Neue, Arial, sans-serif;
+ 	background: rgba(47,47,47,0.98);
+ 	border-bottom-color: #333;
+ 	color:white;
+ }
+ .navbar-inverse .navbar-brand {
+ 	color: #fff;
+ }
+ .navbar-brand strong{
+ 	letter-spacing: 2px;
+ }
+
+ .navbar-inverse .navbar-nav>li>a {
+ 	color: #999;
+ }
+
+ .main-modal-image{
+ 	height: 300px;
+ 	width: 100%;
+ }
+
+ .main-modal-image h3{
+ 	color:#fff;
+ 	text-align: center;
+ }
+ .main-modal-image h3{
+ 	color:#fff;
+ 	text-align: center;
+ }
