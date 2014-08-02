@@ -4,9 +4,13 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.where(approved: true)
+    if params[:search]
+      @cards = Card.paginate(:page => params[:page], :per_page => 15).search(params[:search]).order("created_at DESC")
+     
+    else
+      @cards =  Card.paginate(:page => params[:page], :per_page => 15).where(approved: true)
+    end
   end
-
   # GET /cards/1
   # GET /cards/1.json
   def show

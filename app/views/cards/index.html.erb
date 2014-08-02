@@ -1,12 +1,10 @@
 <div id="container">
 <aside>
      <div id="sidebar">
-         <h1 class="title">Futurekit <h1>
-           
-    
-            <div class="col-md-12">
-           
-            <input type="text" placeholder="Search..." class="form-control" ng-model="search.name">
+           <div class="col-md-12">
+           <br>
+ <pre>Categories coming soon..</pre>
+<!--
            <br>
                <a href="#" class="btn btn-default btn-block">Agriculture</a>
                <a href="#" class="btn btn-default btn-block">Biomedical</a>
@@ -23,11 +21,8 @@
                <a href="#" class="btn btn-default btn-block">Space</a>
                <a href="#" class="btn btn-default btn-block">Social</a>
                <a href="#" class="btn btn-default btn-block">Other</a>
-
+               -->
             </div>
-
-        
-     
      </div>
 </aside>
 <div class="row" id="main-content">
@@ -59,6 +54,9 @@
       </div>
 
        <% end %>
+
+       <%= will_paginate @cards %>
+
 
             </div> <!-- end card-container -->
         </div> <!-- end col sm 3 -->

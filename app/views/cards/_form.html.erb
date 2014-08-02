@@ -2,7 +2,6 @@
   <% if @card.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@card.errors.count, "error") %> prohibited this card from being saved:</h2>
-
       <ul>
       <% @card.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -13,29 +12,30 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :short_desc %><br>
-    <%= f.text_field :short_desc %>
-  </div>
-  <div class="field">
-    <%= f.label :long_desc %><br>
-    <%= f.text_area :long_desc %>
-  </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :readiness %><br>
-    <%= f.text_field :readiness %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :photo %><br>
     <%= f.file_field :photo %>
   </div>
+  <div class="field">
+    <%= f.label :short_desc %><br>
+    <%= f.text_field :short_desc, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :long_desc %><br>
+    <%= f.text_area :long_desc, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.text_field :category, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :readiness %><br>
+    <%= f.number_field :readiness , class: "form-control" %>
+  </div>
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit for Approval", class: "btn btn-primary" %>
   </div>
 <% end %>

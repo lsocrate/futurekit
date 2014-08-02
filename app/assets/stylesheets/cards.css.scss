@@ -1,13 +1,8 @@
-// Place all the styles related to the Cards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 body {
-	font-size: 14px;
 	font-family: "Helvetica Nueue",Arial,Verdana,sans-serif;
 	background-color: #E5E9ED;
+    margin-top:60px;
 }
-
 
 .card-bg{
     background: #fff;
@@ -27,6 +22,7 @@ body {
 #sidebar {
     width: 210px;
     height: 100%;
+    padding-top: 20px;
     overflow: auto;
     position: fixed;
     background: #252525;
@@ -39,8 +35,6 @@ body {
     margin-top: 25px;
 }
 
-
-/* entire container, keeps perspective */
 .card-container {
 	  -webkit-perspective: 800px;
    -moz-perspective: 800px;
