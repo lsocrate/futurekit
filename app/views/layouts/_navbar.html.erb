@@ -13,7 +13,7 @@
     
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/cards/new/">Submit Technology</a></li>
+        <li><a href="/cards/new/"><%= t :submit_tech %></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <form class="navbar-form navbar-left" role="search">
@@ -24,13 +24,20 @@
               <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
             </li>
             <li>
-              <%= submit_tag "Search", :name => nil , class: "btn btn-warning" %>
+              <%= submit_tag (t :search), :name => nil , class: "btn btn-warning" %>
             </li>
           </ul>
           <% end %>
         </div>
       </form>
-    
+    <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t :language %> <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="?locale=pt"><%= t :portuguese %></a></li>
+            <li><a href="?locale=en"><%= t :english %></a></li>
+            
+          </ul>
+        </li>
 
       </ul>
       </div><!-- /.navbar-collapse -->
