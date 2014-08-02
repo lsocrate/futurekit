@@ -19,3 +19,6 @@
   <strong>Readiness:</strong>
   <%= @card.readiness %>
 </p>
+<p>
+Last updated at : <%= time_ago_in_words(@card.updated_at) %>
+</p>

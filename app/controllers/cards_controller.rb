@@ -22,6 +22,11 @@ class CardsController < ApplicationController
     @card = Card.new
   end
 
+
+  def history
+    @versions = PaperTrail::Version.order('created_at DESC')
+  end
+
   # GET /cards/1/edit
   def edit
   end
