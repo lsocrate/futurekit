@@ -19,8 +19,10 @@
                                 <h3 class="name"> <%= card.category %></h3>
                               
                                 <p class="description"><%= card.short_desc %></p>
-                                <%= link_to 'Approve', approve_path(@card) %> |
-
+                                <%= form_tag(:controller => "cards", :action => "approve", :method => "post")  do  %>
+                                  <%= hidden_field_tag 'card', card.id %>
+                                  <%= submit_tag("Approve", :class=>"btn btn-primary") %>
+                                <% end %>
                             </div>
                           
                         </div>

@@ -1,25 +1,28 @@
 <div class="main-modal-image" style="background:url('<%= @card.photo %>'); background-size:cover;">
 	<h3> <%= @card.name %></h3>
 </div>
-
+<p class="text-right">
+Last updated at : <%= time_ago_in_words(@card.updated_at) %>
+</p>
 <p>
   <strong>Category:</strong>
   <%= Category.find(@card.category_id).name if @card.category_id? %>
 </p>
-
 <p>
-  <strong>Short desc:</strong>
-  <%= @card.short_desc %>
-</p>
-
-<p>
-  <strong>Long desc:</strong>
+  <strong>Long description:</strong>
   <%= @card.long_desc %>
 </p>
 <p>
   <strong>Readiness:</strong>
   <%= @card.readiness %>
 </p>
-<p>
-Last updated at : <%= time_ago_in_words(@card.updated_at) %>
-</p>
+<hr>
+
+<p>Useful Links</p>
+<ul class="list-unstyled">
+ <% @card.links do |a| %>
+ <li>
+ 	<a href="<% a.url %>"><%= a.name %></a>
+</li>
+ <% end %>
+</ul>

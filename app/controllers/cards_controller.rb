@@ -15,6 +15,7 @@ class CardsController < ApplicationController
   # GET /cards/1.json
   def show
     respond_to :js
+    
   end
   
   # GET /cards/new
@@ -35,12 +36,22 @@ class CardsController < ApplicationController
     @cards = Card.where(approved: nil)
   end
 
+ 
   def approve
-    @card.approved = true
-    @card.commit
-    respond_to do |format|
-      format.html { redirect_to cards_url, notice: 'Card was successfully approved.' }
-      format.json { head :no_content }
+    @card = Card.find(params[:card]) 
+    if @card
+      @card.approved = 'true'
+      if @card.save
+        flash[:notice] = "Tech activated"
+        redirect_to to_approve_path
+      else
+        puts @card.errors.inspect
+        flash[:notice] = "Something went wrong"
+        redirect_to to_approve_path
+      end
+    else
+      flash[:notice] = "Tech not found"
+      redirect_to to_approve_path
     end
   end
 

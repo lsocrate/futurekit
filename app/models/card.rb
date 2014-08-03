@@ -5,6 +5,9 @@ class Card < ActiveRecord::Base
 
 	has_paper_trail
 
+	has_many :links, :dependent => :destroy
+
+
 	has_many :categories
 	accepts_nested_attributes_for :categories
 
