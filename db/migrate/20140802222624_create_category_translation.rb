@@ -1,8 +1,7 @@
 class CreateCategoryTranslation < ActiveRecord::Migration
   def self.up
     Category.create_translation_table!({
-      :name => :string,
-      
+      :name => :string
     }, {
       :migrate_data => true
     })
