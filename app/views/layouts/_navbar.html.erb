@@ -14,6 +14,9 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="/cards/new/"><%= t :submit_tech %></a></li>
+        <li>
+            <a href="<%= card_path(Card.order("RANDOM()").first) %>" data-toggle="modal" data-target="#myModal" data-remote="true">Random</a>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <form class="navbar-form navbar-left" role="search">
@@ -30,8 +33,10 @@
     <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t :language %> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="?locale=pt"><%= t :portuguese %></a></li>
-            <li><a href="?locale=en"><%= t :english %></a></li>
+            <li><%= link_to t('portuguese'), params.merge(locale: "pt") %></li>
+            <li>   <%= link_to t('english'), params.merge(locale: "en") %>
+            </a>
+            </li>
             
           </ul>
         </li>

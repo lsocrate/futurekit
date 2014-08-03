@@ -16,7 +16,7 @@ class CardsController < ApplicationController
   def show
     respond_to :js
   end
-
+  
   # GET /cards/new
   def new
     @card = Card.new

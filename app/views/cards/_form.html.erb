@@ -10,14 +10,35 @@
     </div>
   <% end %>
 
+
+
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :photo %><br>
-    <%= f.file_field :photo %>
-  </div>
+  
+
+
+  
+    <% if f.object.photo_url %>
+      <div class="form-group">
+        <%= f.label :photo, class: "form-control file" %> (<%= t("valid_formats") %>: jpg, png)<br>
+        <%= image_tag(f.object.photo.to_s, :class => "img-responsive") if f.object.photo? %>  
+        <%= t("change") %>?<%= f.file_field :photo %>
+      </div>
+    <% else %>
+      <div class="form-group">
+        <%= f.label :photo %> (<%= t("valid_formats") %>: jpg, png)<br>
+        <%= f.file_field :photo, class: "form-control file" %>
+      </div>
+    <% end %>
+
+  <div class="upload-preview">
+      <img class="img-responsive" />
+    </div>
+
+
   <div class="field">
     <%= f.label :short_desc %><br>
     <%= f.text_field :short_desc, class: "form-control" %>
@@ -32,10 +53,31 @@
   </div>
   <div class="field">
     <%= f.label :readiness %><br>
-    <%= f.number_field :readiness , class: "form-control" %>
+    <input type="range" name="readiness" min="0" step="0.5" max="1">
+
   </div>
   
   <div class="actions">
     <%= f.submit "Submit for Approval", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+      var preview = $(".upload-preview img");
+
+      $(".file").change(function(event){
+        var input = $(event.currentTarget);
+        var file = input[0].files[0];
+        var reader = new FileReader();
+        reader.onload = function(e){
+          image_base64 = e.target.result;
+          preview.attr("src", image_base64);
+        };
+        reader.readAsDataURL(file);
+      });
+
+
+    });
+</scrip>
