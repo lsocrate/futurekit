@@ -1,51 +1,42 @@
 <div class="main-modal-image" style="background:url('<%= @card.photo %>'); background-size:cover;">
-	<h3> <%= @card.name %></h3>
+  <%= Category.find(@card.category_id).name if @card.category_id? %>
+  <h3> <%= @card.name %></h3>
 </div>
 <p class="text-right">
-Last updated at : <%= time_ago_in_words(@card.updated_at) %>
+  Last updated at : <%= time_ago_in_words(@card.updated_at) %>
 </p>
-<p>
-  <strong>Category:</strong>
-  <%= Category.find(@card.category_id).name if @card.category_id? %>
-</p>
-<p>
-  <strong>Long description:</strong>
-  <%= @card.long_desc %>
-</p>
-<p>
-  <strong>Readiness:</strong>
-  <%= @card.readiness %>
-</p>
-<hr>
 
-<p>Useful Links</p>
-
-<ul class="list-unstyled">
-<% @links.each do |a| %>
- <li>
- 	<a href="<% a.url %>"><%= a.name %></a>
-</li>
-<% end %>
-</ul>
-
-<hr>
-<%= form_for [@card, @link] do |f| %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+<div class="row">
+  <div class="col-md-6">
+  
+    <p>
+      <strong>Description:</strong>
+      <%= @card.long_desc %>
+    </p>
+    <p>
+      <strong>Readiness:</strong>
+      <%= @card.readiness %>
+    </p>
   </div>
-
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
+   <div class="col-md-3">
+    <p>Useful Links</p>
+    
+    <ul class="list-unstyled">
+      <% @links.each do |link| %>
+      <li><a href="<%= link.url %>" target="_blank"><%= link.name %></a></li>
+      <% end %>
+    </ul>
   </div>
-
-  <div class="actions">
-    <%= f.submit %>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-10">
+    <%= form_for [@card, @link] do |f| %>
+    <span class="form-inline">
+      <%= f.text_field :name, :class => "form-control", placeholder: "Name" %>
+      <%= f.text_field :url, :class => "form-control",  placeholder: "URL" %>
+      <%= f.submit "Add Link", :class => "btn btn-default" %>
+    </span>
+    <% end %>
   </div>
-
-<% end %>
-
-<hr>
-
+</div>
