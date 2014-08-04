@@ -1,0 +1,44 @@
+<div id="container">
+<%= render partial:"layouts/sidebar" %>
+  <div class="row" id="main-content">
+    <div class="col-sm-12 col-lg-12">
+      <% @cards.each do |card| %>
+      <div class="col-md-4 col-sm-6" >
+
+        <a href="<%= card_path(card) %>" data-toggle="modal" data-target="#myModal" data-remote="true">
+          <div class="card-container">
+            <div class="card">
+              <div class="front">
+                <div class="cover">
+                  <img src="<%= card.photo %>">
+                </div>
+                <div class="content">
+                  <div class="main">
+                    <h3 class="name"> <%= card.name %></h3>
+                    <p class="description"><%= card.short_desc %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <% end %>
+      
+      </div> <!-- end card-container -->
+      </div> <!-- end col sm 3 -->
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+           
+            <div class="modal-body">
+              Loading...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

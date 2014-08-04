@@ -6,7 +6,6 @@ class CardsController < ApplicationController
   def index
     if params[:search]
       @cards = Card.paginate(:page => params[:page], :per_page => 16).search(params[:search]).order("created_at DESC")
-     
     else
       @cards =  Card.paginate(:page => params[:page], :per_page => 16).where(approved: true)
     end
@@ -15,7 +14,6 @@ class CardsController < ApplicationController
   # GET /cards/1.json
   def show
     respond_to :js
-    
   end
   
   # GET /cards/new
@@ -34,6 +32,10 @@ class CardsController < ApplicationController
 
   def to_approve
     @cards = Card.where(approved: nil)
+  end
+
+  def jackpot
+    @cards = Card.order("RANDOM()").where(approved: true).first(3)
   end
 
  

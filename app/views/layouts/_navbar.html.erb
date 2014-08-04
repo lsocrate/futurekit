@@ -15,7 +15,10 @@
       <ul class="nav navbar-nav">
         <li><a href="/cards/new/"><%= t :submit_tech %></a></li>
         <li>
-            <a href="<%= card_path(Card.order("RANDOM()").first) %>" data-toggle="modal" data-target="#myModal" data-remote="true">Random</a>
+            <a href="<%= card_path(Card.order("RANDOM()").first) %>" data-toggle="modal" data-target="#myModal" data-remote="true">Random Card</a>
+        </li>
+        <li>
+            <a href="<%= jackpot_path %>">Card Jackpot</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
