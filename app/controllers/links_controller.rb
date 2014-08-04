@@ -4,7 +4,9 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    @links = Card.where("id = ?", params[:id])
+    @card = Card.find(params[:card_id])
+    @links = @card.links
+    
   end
 
   # GET /links/1
@@ -15,6 +17,8 @@ class LinksController < ApplicationController
   # GET /links/new
   def new
     @link = Link.new
+    @card = Card.find(params[:card_id])
+
   end
 
   # GET /links/1/edit
@@ -24,7 +28,8 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.json
   def create
-    @link = Link.new(link_params)
+    @card = Card.find(params[:card_id])
+    @link = @card.links.build(link_params)
 
     respond_to do |format|
       if @link.save
@@ -69,6 +74,6 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:name, :url)
+      params.require(:link).permit(:name, :url, :card_id)
     end
 end

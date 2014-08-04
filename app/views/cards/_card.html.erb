@@ -19,10 +19,33 @@ Last updated at : <%= time_ago_in_words(@card.updated_at) %>
 <hr>
 
 <p>Useful Links</p>
+
 <ul class="list-unstyled">
- <% @card.links do |a| %>
+<% @links.each do |a| %>
  <li>
  	<a href="<% a.url %>"><%= a.name %></a>
 </li>
- <% end %>
+<% end %>
 </ul>
+
+<hr>
+<%= form_for [@card, @link] do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
+<hr>
+

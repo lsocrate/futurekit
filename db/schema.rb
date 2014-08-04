@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140803152102) do
+ActiveRecord::Schema.define(version: 20140804101550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,7 +51,10 @@ ActiveRecord::Schema.define(version: 20140803152102) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "card_id"
   end
+
+  add_index "links", ["card_id"], name: "index_links_on_card_id", using: :btree
 
   create_table "versions", force: true do |t|
     t.string   "item_type",  null: false

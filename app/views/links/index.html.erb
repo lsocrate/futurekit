@@ -1,8 +1,10 @@
+<h1>index of links</h1>
     <% @links.each do |link| %>
       <tr>
         <td><%= link.name %></td>
         <td><%= link.url %></td>
          </tr>
     <% end %>
-
 <br>
+
+<%= link_to 'NEW LINK', new_card_link_path(@card.id) %>
