@@ -10,7 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require bootstrap
+ *= require cards
  *= require font-awesome
  *= require_self
  */
@@ -18,12 +19,12 @@
  @import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
  .navbar-inverse{
  	font-family: Roboto, Helvetica Neue, Arial, sans-serif;
- 	background: rgba(47,47,47,0.98);
- 	border-bottom-color: #333;
+ 	background: #434a54;
+ 	border-bottom-color: #434a54;
  	color:white;
  }
  .navbar-inverse .navbar-brand {
- 	color: #fff;
+ 	color: #f5f7fa;
  }
 
  .navbar-brand strong{
@@ -47,3 +48,12 @@
  	color:#fff;
  	text-align: center;
  }
+
+.btn-warning{
+	background-color: #fc6e51; 
+	border-color: #e9573f;
+}
+.btn-warning:hover, .btn-warning:active{
+	background-color: #e9573f; 
+	border-color: #e9573f;
+}

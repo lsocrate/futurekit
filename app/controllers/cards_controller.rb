@@ -18,7 +18,7 @@ class CardsController < ApplicationController
   def show
     @link = Link.new
     @links = @card.links
-    respond_to :js
+    respond_to :html
   end
   
   # GET /cards/new
@@ -105,7 +105,7 @@ class CardsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_card
-      @card = Card.find(params[:id])
+      @card = Card.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

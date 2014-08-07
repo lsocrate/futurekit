@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   mount PgHero::Engine, at: "pghero"
  
   resources :categories 

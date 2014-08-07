@@ -13,16 +13,8 @@
     
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/cards/new/"><%= t :submit_tech %></a></li>
-        <li>
-            <a href="<%= card_path(Card.order("RANDOM()").first) %>" data-toggle="modal" data-target="#myModal" data-remote="true">Random Card</a>
-        </li>
-        <li>
-            <a href="<%= jackpot_path %>">Card Jackpot</a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-      <form class="navbar-form navbar-left" role="search">
+       
+        <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <%= form_tag(cards_path, :method => "get", id: "search-form") do %>
           <ul class="list-inline">
@@ -33,6 +25,16 @@
           <% end %>
         </div>
       </form>
+        <li>
+            <a href="<%= card_path(Card.order("RANDOM()").first) %>" data-toggle="modal" data-target="#myModal" data-remote="true">Random Card</a>
+        </li>
+        <li>
+            <a href="<%= jackpot_path %>">Card Jackpot</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+       <li> <form><a class="btn btn-warning btn-sm navbar-btn" href="/cards/new/"><%= t :submit_tech %></a></form></li>
     <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t :language %> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">

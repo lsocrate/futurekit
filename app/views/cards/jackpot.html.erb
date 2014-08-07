@@ -1,5 +1,4 @@
 <div id="container">
-<%= render partial:"layouts/sidebar" %>
   <div class="row" id="main-content">
     <div class="col-sm-12 col-lg-12">
       <% @cards.each do |card| %>
@@ -25,20 +24,4 @@
       </a>
       <% end %>
       
-      </div> <!-- end card-container -->
-      </div> <!-- end col sm 3 -->
-      <!-- Modal -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-           
-            <div class="modal-body">
-              Loading...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
