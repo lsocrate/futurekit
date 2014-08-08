@@ -29,14 +29,3 @@
   </div>
 </div>
 </div>
-<div class="row">
-  <div class="col-md-10">
-    <%= form_for [@card, @link] do |f| %>
-    <span class="form-inline">
-      <%= f.text_field :name, :class => "form-control", placeholder: "Name" %>
-      <%= f.text_field :url, :class => "form-control",  placeholder: "URL" %>
-      <%= f.submit "Add Link", :class => "btn btn-default" %>
-    </span>
-    <% end %>
-  </div>
-</div>

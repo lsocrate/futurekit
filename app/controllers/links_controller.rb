@@ -4,7 +4,7 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    @card = Card.find(params[:card_id])
+    @card = Card.friendly.find(params[:card_id])
     @links = @card.links
     
   end
@@ -28,12 +28,12 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.json
   def create
-    @card = Card.find(params[:card_id])
+    @card = Card.friendly.find(params[:card_id])
     @link = @card.links.build(link_params)
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to cards_path, notice: 'Link was successfully created.' }
+        format.html { redirect_to @card, notice: 'Link was successfully created.' }
         format.json { render :show, status: :created, location: @link }
       else
         format.html { render :new }

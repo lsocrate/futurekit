@@ -21,7 +21,6 @@ class CardsController < ApplicationController
     respond_to :html
   end
   
-  # GET /cards/new
   def new
     @card = Card.new
   end
@@ -31,7 +30,6 @@ class CardsController < ApplicationController
     @versions = PaperTrail::Version.order('created_at DESC')
   end
 
-  # GET /cards/1/edit
   def edit
   end
 
@@ -99,7 +97,7 @@ class CardsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
       format.json { head :no_content }
-    end
+    end 
   end
 
   private

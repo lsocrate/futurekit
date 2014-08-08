@@ -121,11 +121,6 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    meta_search (0.5.4)
-      actionpack (>= 3.0.0.beta4)
-      activerecord (>= 3.0.0.beta4)
-      activesupport (>= 3.0.0.beta4)
-      arel (>= 0.4.0)
     mime-types (1.25.1)
     minitest (5.4.0)
     multi_json (1.10.1)
@@ -139,6 +134,8 @@ GEM
     polyamorous (1.0.0)
       activerecord (>= 3.0)
     polyglot (0.3.5)
+    quiet_assets (1.0.3)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -235,10 +232,10 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   less-rails
-  meta_search
   paper_trail (~> 3.0.3)
   pg
   pghero
+  quiet_assets
   rails (= 4.1.4)
   rails_12factor
   rmagick
