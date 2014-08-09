@@ -19,6 +19,7 @@ class Card < ActiveRecord::Base
 	extend FriendlyId
 
 	friendly_id :name, use: :slugged
+	 acts_as_taggable
 	
 	mount_uploader :photo, PhotoUploader
 	validates :name, presence: true
