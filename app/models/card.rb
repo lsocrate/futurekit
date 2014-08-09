@@ -18,8 +18,6 @@
 class Card < ActiveRecord::Base
 	extend FriendlyId
 
-	translates :name, :short_desc, :long_desc
-	
 	friendly_id :name, use: :slugged
 	
 	mount_uploader :photo, PhotoUploader
