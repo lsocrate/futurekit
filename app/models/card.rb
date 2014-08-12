@@ -29,6 +29,9 @@ class Card < ActiveRecord::Base
 
 	has_many :links, :dependent => :destroy
 
+	translates :name
+	translates :short_desc
+	translates :long_desc
 
 	has_many :categories
 	accepts_nested_attributes_for :categories

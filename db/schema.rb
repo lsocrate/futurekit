@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140809175115) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
     t.text     "body"
@@ -27,9 +24,9 @@ ActiveRecord::Schema.define(version: 20140809175115) do
     t.datetime "updated_at"
   end
 
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
   create_table "card_translations", force: true do |t|
     t.integer  "card_id",    null: false
@@ -41,8 +38,8 @@ ActiveRecord::Schema.define(version: 20140809175115) do
     t.text     "long_desc"
   end
 
-  add_index "card_translations", ["card_id"], name: "index_card_translations_on_card_id", using: :btree
-  add_index "card_translations", ["locale"], name: "index_card_translations_on_locale", using: :btree
+  add_index "card_translations", ["card_id"], name: "index_card_translations_on_card_id"
+  add_index "card_translations", ["locale"], name: "index_card_translations_on_locale"
 
   create_table "cards", force: true do |t|
     t.string   "name"
@@ -58,7 +55,7 @@ ActiveRecord::Schema.define(version: 20140809175115) do
     t.string   "slug"
   end
 
-  add_index "cards", ["slug"], name: "index_cards_on_slug", unique: true, using: :btree
+  add_index "cards", ["slug"], name: "index_cards_on_slug", unique: true
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -74,8 +71,8 @@ ActiveRecord::Schema.define(version: 20140809175115) do
     t.string   "name"
   end
 
-  add_index "category_translations", ["category_id"], name: "index_category_translations_on_category_id", using: :btree
-  add_index "category_translations", ["locale"], name: "index_category_translations_on_locale", using: :btree
+  add_index "category_translations", ["category_id"], name: "index_category_translations_on_category_id"
+  add_index "category_translations", ["locale"], name: "index_category_translations_on_locale"
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -85,10 +82,10 @@ ActiveRecord::Schema.define(version: 20140809175115) do
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "links", force: true do |t|
     t.string   "name"
@@ -99,7 +96,7 @@ ActiveRecord::Schema.define(version: 20140809175115) do
     t.string   "link_type"
   end
 
-  add_index "links", ["card_id"], name: "index_links_on_card_id", using: :btree
+  add_index "links", ["card_id"], name: "index_links_on_card_id"
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
@@ -111,15 +108,15 @@ ActiveRecord::Schema.define(version: 20140809175115) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
 
   create_table "tags", force: true do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "versions", force: true do |t|
     t.string   "item_type",  null: false
@@ -131,6 +128,6 @@ ActiveRecord::Schema.define(version: 20140809175115) do
     t.string   "locale"
   end
 
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
 
 end
