@@ -10,10 +10,12 @@
               <div class="front">
                 <div class="cover">
                   <img src="<%= card.photo_url(:thumb) %>">
+                  <div class="nametag-photo-name">
+                    <h3 class="name"> <%= card.name %></h3>
+                  </div>
                 </div>
                 <div class="content">
                   <div class="main">
-                    <h3 class="name"> <%= card.name %></h3>
                     
                     <p class="description"><%= card.short_desc %></p>
                   </div>

@@ -1,6 +1,7 @@
 body {
 	font-family: "Roboto", Helvetica Neue, Arial,sans-serif;
 	background-color: #e6e9ed;
+    text-rendering: optimizeLegibility;
     margin-top:60px;
     a {
         color: #999;
@@ -77,21 +78,57 @@ body {
     overflow: none;
 }
 
+.nametag-photo-name {
+background: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,rgba(22,24,27,0)),color-stop(72px,rgba(22,24,27,.7)),color-stop(100%,rgba(22,24,27,.9)));
+background: -webkit-linear-gradient(top,rgba(22,24,27,0),rgba(22,24,27,.7) 72px,rgba(22,24,27,.9));
+background: -moz-linear-gradient(top,rgba(22,24,27,0),rgba(22,24,27,.7) 72px,rgba(22,24,27,.9));
+background: -o-linear-gradient(top,rgba(22,24,27,0),rgba(22,24,27,.7) 72px,rgba(22,24,27,.9));
+background: -ms-linear-gradient(top,rgba(22,24,27,0),rgba(22,24,27,.7) 72px,rgba(22,24,27,.9));
+background: linear-gradient(top,rgba(22,24,27,0),rgba(22,24,27,.7) 72px,rgba(22,24,27,.9));
+box-sizing: border-box;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+line-height: 27px;
+display: block;
+color: #fff;
+padding: 81px 18px 0;
+orphans: 2;
+z-index: 112;
+vertical-align: bottom;
+width: 100%;
+position: absolute;
+bottom: 0;
+left: 0;
+}
+
+
 .card{
     background: none repeat scroll 0 0 #FFFFFF;
     border-radius: 4px;
     color: #444444;
     position: relative;
+    .cover{
+        height: 170px;
+        overflow: hidden;
+        border-radius: 4px 4px 0 0;
+        position: relative;
+    }
+    .name {
+        font-size: 23px;
+        line-height: 28px;
+       
+        text-align: center;
+        color:#fff;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.65);
+        z-index: 132;
+        text-transform: capitalize;
+    }
 }
 .card-container, .front, .back {
 	height: 390px;
 	border-radius: 4px;
 }
-.card .cover{
-    height: 170px;
-    overflow: hidden;
-    border-radius: 4px 4px 0 0;
-}
+
 .card .cover img{
     width: 100%;
 }
@@ -105,13 +142,6 @@ body {
 }
 .card .back .content .main {
     height: 215px;
-}
-.card .name {
-    font-size: 22px;
-    line-height: 28px;
-    margin: 10px 0 0;
-    text-align: center;
-    text-transform: capitalize;
 }
 .card h5{
     margin: 5px 0;

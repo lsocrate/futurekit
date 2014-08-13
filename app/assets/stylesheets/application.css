@@ -49,6 +49,14 @@
  	text-align: center;
  }
 
+ .transparent{
+ 	background-color: transparent;
+ 	border: 0px;
+ }
+ .transparent:active{
+ 	border: 0px;
+ }
+
 .btn-warning{
 	background-color: #fc6e51; 
 	border-color: #e9573f;

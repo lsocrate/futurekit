@@ -26,9 +26,13 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'spring',        group: :development
-gem 'better_errors', group: :development
-gem 'quiet_assets', group: :development
+
+group :development do
+	gem 'spring'  
+	gem 'better_errors'
+	gem 'quiet_assets'
+end
+
 gem 'rails_12factor', group: :production
 gem 'unicorn'
 gem "activeadmin-globalize", github: 'stefanoverna/activeadmin-globalize', branch: 'master'

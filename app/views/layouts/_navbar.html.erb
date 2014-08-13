@@ -19,17 +19,18 @@
           <%= form_tag(cards_path, :method => "get", id: "search-form") do %>
           <ul class="list-inline">
             <li>
-              <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+            <i class="fa fa-search"></i>
+              <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control transparent" %>
             </li>
           </ul>
           <% end %>
         </div>
       </form>
         <li>
-            <a href="<%= card_path(Card.order("RANDOM()").first) %>" data-toggle="modal" data-target="#myModal" data-remote="true">Random Card</a>
+            <a href="<%= card_path(Card.order("RANDOM()").first) %>"><i class="fa fa-random"></i></a>
         </li>
         <li>
-            <a href="<%= jackpot_path %>">Card Jackpot</a>
+            <a href="<%= jackpot_path %>"><i class="fa fa-recycle"></i></a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
