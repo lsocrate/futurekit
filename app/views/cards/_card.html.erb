@@ -1,0 +1,22 @@
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" >
+        <a href="<%= card_path(card) %>" >
+          <div class="card-container">
+            <div class="card">
+              <div class="front">
+                <div class="cover">
+                  <img src="<%= card.photo_url(:thumb) %>">
+                  <div class="nametag-photo-name">
+                    <h3 class="name"> <%= card.name %></h3>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="main"> 
+                    <p class="description"><%= card.short_desc.truncate(144) %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        
+      </div>

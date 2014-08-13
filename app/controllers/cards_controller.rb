@@ -39,6 +39,7 @@ class CardsController < ApplicationController
 
   def jackpot
     @cards = Card.order("RANDOM()").where(approved: true).first(3)
+   
   end
 
  
