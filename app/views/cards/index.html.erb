@@ -1,4 +1,4 @@
-<div id="container">
+<div class="container">
   <div class="row" id="main-content">
     <div class="col-sm-12 col-lg-12">
       <% @cards.each do |card| %>
@@ -17,7 +17,7 @@
                 <div class="content">
                   <div class="main">
                     
-                    <p class="description"><%= card.short_desc %></p>
+                    <p class="description"><%= card.short_desc.truncate(144) %></p>
                   </div>
                 </div>
               </div>
