@@ -1,8 +1,8 @@
 root = "/home/inspiring/apps/futurekit"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
-# stderr_path "#{root}/log/unicorn.log"
-# stdout_path "#{root}/log/unicorn.log"
+stderr_path "#{root}/log/unicorn.log"
+stdout_path "#{root}/log/unicorn.log"
 listen "/tmp/unicorn.futurekit.sock"
 
 #worker_processes Integer(ENV["WEB_CONCURRENCY"] || 2)

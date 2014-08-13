@@ -48,4 +48,25 @@ class PhotoUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
+  def optimize
+    manipulate! do |img, index, options|
+      options[:write] = {
+        :quality => 60, # Change the quality to 80%
+        :depth => 8, # Set the depth to 8 bits
+        :interlace => "Magick::PlaneInterlace" # Add progressive support for JPEG
+      }
+      img.strip! # Remove profile data
+    end
+  end
+
+  version :display do
+    process :resize_to_fill => [800, 600]
+    # process :optimize
+  end
+
+  version :thumb do
+    process :resize_to_fill => [400, 300]
+    process :optimize
+  end
+
 end
