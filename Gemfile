@@ -33,3 +33,4 @@ gem 'rails_12factor', group: :production
 gem 'unicorn'
 gem "activeadmin-globalize", github: 'stefanoverna/activeadmin-globalize', branch: 'master'
 gem 'dotenv-rails'
+gem 'yaml_db'
