@@ -38,3 +38,5 @@ gem 'unicorn'
 gem "activeadmin-globalize", github: 'stefanoverna/activeadmin-globalize', branch: 'master'
 gem 'dotenv-rails'
 gem 'yaml_db'
+gem 'bcrypt', '~> 3.1.7'
+gem 'annotate', group: :development

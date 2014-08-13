@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   mount PgHero::Engine, at: "pghero"
  
+  resources :sessions, only: :create
+  match '/login',  to: 'sessions#new', via: :get
+  match '/logout', to: 'sessions#destroy', via: :delete
+  
   resources :categories 
 
   resources :cards do
