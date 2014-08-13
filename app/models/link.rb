@@ -7,6 +7,8 @@
 #  url        :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  card_id    :integer
+#  link_type  :string(255)
 #
 
 class Link < ActiveRecord::Base

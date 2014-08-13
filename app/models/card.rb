@@ -13,6 +13,7 @@
 #  updated_at  :datetime
 #  approved    :boolean
 #  category_id :integer
+#  slug        :string(255)
 #
 
 class Card < ActiveRecord::Base
