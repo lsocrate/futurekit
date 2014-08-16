@@ -1,18 +1,21 @@
-body {
-	font-family: "Roboto", Helvetica Neue, Arial,sans-serif;
-	background-color: #e6e9ed;
-    text-rendering: optimizeLegibility;
-    margin-top:60px;
-    a {
-        color: #999;
-        text-decoration: none;
-    }
+
+.card-container {
+    margin-bottom: 20px;
+    -webkit-transition: all .2s ease-in-out; 
 }
 
-.navbar-inverse{
-    background: #fff;
+.card-container:hover {
+    -webkit-transform: scale(1.1);
 }
 
+.front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #FFF;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        z-index: 2;
+}
 
 .submit-tech{
     background-size: cover;
@@ -40,20 +43,7 @@ body {
     margin-top: 25px;
 }
 
-.card-container {
 
-        margin-bottom: 20px;
-
-}
-
-.front {
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: #FFF;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-        z-index: 2;
-}
 
 .nametag-photo-name {
 background: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,rgba(22,24,27,0)),color-stop(72px,rgba(22,24,27,.7)),color-stop(100%,rgba(22,24,27,.9)));

@@ -17,6 +17,19 @@
  */
 
  @import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
+
+body {
+	font-family: "Roboto", Helvetica Neue, Arial,sans-serif;
+	background-color: #e6e9ed;
+    text-rendering: optimizeLegibility;
+    margin-top:60px;
+    a {
+        color: #999;
+        text-decoration: none;
+    }
+}
+
+
  .navbar-inverse{
  	font-family: Roboto, Helvetica Neue, Arial, sans-serif;
  	background: #434a54;
