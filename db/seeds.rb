@@ -1,6 +1,8 @@
-Category.create(
-	name: "Agriculture"
-)
+user = User.create(name: "admin", email: "admin@env.io", password: "change_me")
+user.admin = true
+user.save
+
+Category.create( name: "Agriculture")
 Category.create(
 	name: "Biomedical"
 )

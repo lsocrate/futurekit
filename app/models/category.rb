@@ -10,5 +10,5 @@
 
 class Category < ActiveRecord::Base
 	  belongs_to :cards
-	  translates :name
+	  #translates :name
 end

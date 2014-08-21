@@ -20,7 +20,7 @@ class Card < ActiveRecord::Base
 	extend FriendlyId
 
 	friendly_id :name, use: :slugged
-	 acts_as_taggable
+	acts_as_taggable
 	
 	mount_uploader :photo, PhotoUploader
 	validates :name, presence: true
@@ -30,18 +30,15 @@ class Card < ActiveRecord::Base
 
 	has_many :links, :dependent => :destroy
 
-	translates :name
-	translates :short_desc
-	translates :long_desc
+	#translates :name, :short_desc, :long_desc
 
 	has_many :categories
 	accepts_nested_attributes_for :categories
 
-	
 
 def self.search(query)
 	puts "searching..."
-  where("name like ?", "%#{query}%") 
+  	where("name like ?", "%#{query}%" ) 
 end
 
 end

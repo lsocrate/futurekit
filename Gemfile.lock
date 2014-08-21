@@ -99,9 +99,6 @@ GEM
     globalize (4.0.2)
       activemodel (>= 4.0.0, < 5)
       activerecord (>= 4.0.0, < 5)
-    globalize-versioning (0.1.0.alpha.1)
-      globalize (>= 3, < 5)
-      paper_trail (~> 3.0.0)
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -244,8 +241,6 @@ DEPENDENCIES
   dotenv-rails
   font-awesome-rails
   friendly_id (~> 5.0.0)
-  globalize (~> 4.0.2)
-  globalize-versioning (~> 0.1.0.alpha.1)
   jbuilder (~> 2.0)
   jquery-rails
   less-rails

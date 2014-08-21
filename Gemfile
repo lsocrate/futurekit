@@ -19,8 +19,8 @@ gem 'acts-as-taggable-on'
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'rmagick', :require => false #image processing
 gem 'paper_trail', '~> 3.0.3' #versioning of the cards
-gem 'globalize', '~> 4.0.2' #will be needed for translations
-gem 'globalize-versioning', '~> 0.1.0.alpha.1'
+#gem 'globalize', '~> 4.0.2' #will be needed for translations
+#gem 'globalize-versioning', '~> 0.1.0.alpha.1'
 gem 'will_paginate-bootstrap'
 gem 'jquery-rails'
 gem 'turbolinks'
