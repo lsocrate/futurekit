@@ -1,4 +1,4 @@
-user = User.create(name: "admin", email: "admin@env.io", password: "change_me")
+user = User.create(name: "admin", email: "admin@env.io", password: "change_me", password_confirmation: "change_me")
 user.admin = true
 user.save
 
