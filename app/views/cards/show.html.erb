@@ -40,13 +40,13 @@
       </ul>
 
       <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6">
     <%= form_for [@card, @link] do |f| %>
-    <span class="form-inline">
+    <span>
       <%= f.text_field :name, :class => "form-control", placeholder: "Name" %>
       <%= f.text_field :url, :class => "form-control",  placeholder: "URL" %>
-      <%= f.select :link_type, "<option>1. Further reading</option><option>2. Example</option><option>3. People</option><option>4. Photograph</option>".html_safe  %>
-      <%= f.submit "Add Link", :class => "btn btn-default" %>
+      <%= f.select :link_type, "<option>1. Further reading</option><option>2. Example</option><option>3. People</option><option>4. Photograph</option>".html_safe  %> <br>
+      <%= f.submit "Add Link", :class => "btn btn-default btn-block" %>
     </span>
     <% end %>
   </div>
