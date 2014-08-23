@@ -1,8 +1,7 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
+ruby "2.1.0"
 
-ruby File.read(File.expand_path('../.ruby-version', __FILE__)).strip.sub(/ruby\-/, '')
-
-gem 'rails', '~> 4.1.5'
+gem 'rails', '4.1.4'
 # gem 'pg'
 gem 'sqlite3'
 gem "font-awesome-rails"
