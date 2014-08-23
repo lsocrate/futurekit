@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-ruby "2.1.2"
+ruby File.read(File.expand_path('../.ruby-version', __FILE__)).strip.sub(/ruby\-/, '')
+
 gem 'rails', '4.1.4'
 # gem 'pg'
 gem 'sqlite3'
