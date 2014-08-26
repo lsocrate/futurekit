@@ -13,12 +13,16 @@ class CardsController < ApplicationController
   # GET /cards/1
   # GET /cards/1.json
 
-  
+ 
 
   def show
+    if params[:search]
+      redirect_to cards_path(:search => (params[:search]))
+    else
     @link = Link.new
     @links = @card.links
     respond_to :html
+  end
   end
   
   def new

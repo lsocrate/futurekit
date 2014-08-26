@@ -8,48 +8,50 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<%= root_path %>"><strong>FUTURE</strong>KIT</a>
+      <a class="navbar-brand" href="<%= root_path %>"><strong>FUTURE</strong>DECK</a>
     </div>
     
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-       
+        
         <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <%= form_tag(cards_path, :method => "get", id: "search-form") do %>
-          <ul class="list-inline">
-            <li>
-            <label for="search">
-            <i class="fa fa-search"></i>
-            </label>
-              <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control transparent" %>
-            </li>
-          </ul>
-          <% end %>
-        </div>
-      </form>
+          <div class="form-group">
+
+            <%= form_tag(cards_path, :action => "index", :method => "get", id: "search-form") do %>
+            <ul class="list-inline">
+              <li>
+                <label for="search">
+                  <i class="fa fa-search"></i>
+                </label>
+                <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control transparent" %>
+
+
+              </li>
+            </ul>
+            <% end %>
+          </div>
+        </form>
+
         <li>
-            <a href="<%= card_path(Card.order("RANDOM()").first) %>"><i class="fa fa-random"></i></a>
+          <a href="<%= card_path(Card.order("RANDOM()").first) %>"><i class="fa fa-random"></i></a>
         </li>
         <li>
-            <a href="<%= jackpot_path %>"><i class="fa fa-recycle"></i></a>
+          <a href="<%= jackpot_path %>"><i class="fa fa-recycle"></i></a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-
-       <li> <form><a class="btn btn-warning btn-sm navbar-btn" href="/cards/new/"><i class="fa fa-caret-square-o-up"></i> <%= t :submit_tech %></a></form></li>
-    <li class="dropdown">
+        <li> <form><a class="btn btn-warning btn-sm navbar-btn" href="/cards/new/"><i class="fa fa-caret-square-o-up"></i> <%= t :submit_tech %></a></form></li>
+        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i></a>
           <ul class="dropdown-menu" role="menu">
             <li><%= link_to t('portuguese'), params.merge(locale: "pt") %></li>
             <li>   <%= link_to t('english'), params.merge(locale: "en") %>
             </a>
-            </li>
-            
-          </ul>
-        </li>
-
-      </ul>
-      </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+          </li>
+          
+        </ul>
+      </li>
+    </ul>
+    </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
