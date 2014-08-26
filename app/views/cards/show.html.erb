@@ -1,5 +1,5 @@
+<% content_for :title, @card.name + " - " %>
 <div class="container">
-
   <div class="row">
     <div class="col-md-12">
       <div class="page-header">
@@ -11,6 +11,7 @@
     </div>
     <div class="col-md-5">
      <img src="<%= @card.photo_url(:display) %>" class="img-responsive img-thumbnail"/>
+
    </div>
    <div class="col-md-7">
     <p class="lead">  <%= @card.short_desc %></p>
@@ -19,7 +20,6 @@
       <%= @card.category %>
       <%= @card.long_desc %>
     </p>
-
 
     <p>
       <strong>Readiness:</strong>
@@ -38,7 +38,7 @@
         <li><%= link.link_type %> - <a href="<%= link.url %>" target="_blank"><%= link.name %></a></li>
         <% end %>
       </ul>
-
+<!--
       <div class="row">
   <div class="col-md-6">
     <%= form_for [@card, @link] do |f| %>
@@ -51,7 +51,7 @@
     <% end %>
   </div>
 </div>
-
+-->
       <hr>
       <div id="disqus_thread"></div>
 

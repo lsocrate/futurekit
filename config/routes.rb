@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :cards do
   	resources :links
+    resources :follows, :only => [:create, :destroy]
+
   end
 
   #TODO approve inventions still doesnt work

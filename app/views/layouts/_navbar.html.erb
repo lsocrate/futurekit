@@ -31,16 +31,17 @@
             <% end %>
           </div>
         </form>
-
+<!--
         <li>
           <a href="<%= card_path(Card.order("RANDOM()").first) %>"><i class="fa fa-random"></i></a>
         </li>
+        -->
         <li>
           <a href="<%= jackpot_path %>"><i class="fa fa-recycle"></i></a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li> <form><a class="btn btn-warning btn-sm navbar-btn" href="/cards/new/"><i class="fa fa-caret-square-o-up"></i> <%= t :submit_tech %></a></form></li>
+        <!--<li> <form><a class="btn btn-warning btn-sm navbar-btn" href="/cards/new/"><i class="fa fa-caret-square-o-up"></i> <%= t :submit_tech %></a></form></li> -->
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i></a>
           <ul class="dropdown-menu" role="menu">

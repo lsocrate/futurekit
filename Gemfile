@@ -14,6 +14,7 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'pghero'
 #gem 'fog'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem "acts_as_follower"
 
 gem 'acts-as-taggable-on'
 #gem "meta_search"
