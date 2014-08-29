@@ -28,11 +28,11 @@ class Card < ActiveRecord::Base
 	validates :name, presence: true
 	validates :short_desc, presence: true
 
-	has_paper_trail
+	#has_paper_trail
 
 	has_many :links, :dependent => :destroy
 
-	#translates :name, :short_desc, :long_desc
+	translates :name, :short_desc, :long_desc
 
 	has_many :categories
 	accepts_nested_attributes_for :categories

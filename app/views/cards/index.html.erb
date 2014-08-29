@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row" id="main-content">
-    <div class="col-sm-12 col-lg-12">
+    <div class="col-sm-12 col-lg-12" id="my-cards">
       <% @cards.each do |card| %>
         <%= render 'card', card: card %>
       <% end %>
     </div>
-    <div class="row text-center">
-      <%= will_paginate @cards, renderer: BootstrapPagination::Rails %>
+    <div class="row text-center" id="infinite-scrolling">
+      <%= will_paginate %>
     </div>
   </div>
 </div>

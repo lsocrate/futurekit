@@ -6,9 +6,18 @@ class CardsController < ApplicationController
   def index
     if params[:search]
       @cards = Card.paginate(:page => params[:page], :per_page => 16).search(params[:search]).order("created_at DESC")
+       respond_to do |format|
+    format.html
+    format.js
+  end
     else
       @cards =  Card.paginate(:page => params[:page], :per_page => 16).where(approved: true)
+       respond_to do |format|
+    format.html
+    format.js
+  end
     end
+ 
   end
   # GET /cards/1
   # GET /cards/1.json
