@@ -71,6 +71,15 @@ High = Financially viable = product
     </div>
 
 
+ <%= form_tag("/follow", method: "post") do %>
+      <%= select("card", "id", 
+        Card.all.where(approved: true).collect {|p| [ p.name, p.id ] })
+      %>
+       <%= submit_tag( "Relate tech" ) %>
+       <% end %>
+
+
+
   
   <div class="actions">
   <br>

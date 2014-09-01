@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   resources :categories 
 
   resources :cards do
-  	resources :links
-    resources :follows, :only => [:create, :destroy]
+    
+    match '/follow',  to: 'cards#follow', via: :post
 
+  	resources :links    
   end
 
   #TODO approve inventions still doesnt work
