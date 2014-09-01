@@ -7,14 +7,11 @@ class CreateCards < ActiveRecord::Migration
       t.string :category
       t.decimal :readiness
       t.string :photo
-
       t.timestamps
     end
-      Card.create_translation_table! :name => :string, :short_desc => :string, :long_desc => :text
-
+    
   end
   def down
     drop_table :cards
-    Card.drop_translation_table!
-  end
+   end
 end
