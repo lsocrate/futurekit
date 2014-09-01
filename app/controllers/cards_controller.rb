@@ -30,7 +30,13 @@ class CardsController < ApplicationController
     else
     @link = Link.new
     @links = @card.links
-    respond_to :html
+   respond_to :html
+    
+     # render :pdf => "card",
+     #   :page_height                    => 85,
+     #   :page_width                     => 55
+
+   
   end
   end
   

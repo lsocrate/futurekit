@@ -16,6 +16,10 @@ gem 'pghero'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem "acts_as_follower"
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
+
 gem 'acts-as-taggable-on'
 #gem "meta_search"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
