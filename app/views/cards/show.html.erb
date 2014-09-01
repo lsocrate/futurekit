@@ -1,3 +1,6 @@
+<% Globalize.with_locale(I18n.locale) do %>
+ 
+
 <% content_for :title, @card.name + " - " %>
 <div class="container">
   <div class="row card-full">
@@ -67,3 +70,4 @@
   </div>
 </div>
 </div>
+<% end %>
