@@ -43,4 +43,8 @@ def self.search(query)
   	where("name like ?", "%#{query}%" ) 
 end
 
+def card_tokens=(ids)
+    self.card_ids = ids.split(",")
+end
+
 end

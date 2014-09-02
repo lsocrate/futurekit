@@ -14,15 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-$(document).ready(function() {
-
-  var clickOnPopupLink = function(){
-    $('body').on('click', '.static-popup-link', function(){
-      $('#myModal').modal('show');
-    });
-  }
-
-  clickOnPopupLink();
-
-});

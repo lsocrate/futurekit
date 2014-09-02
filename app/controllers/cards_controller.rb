@@ -9,12 +9,15 @@ class CardsController < ApplicationController
       respond_to do |format|
         format.html
         format.js
+        format.json { render :json => @cards.map(&:attributes) }
+
       end
     else
       @cards =  Card.paginate(:page => params[:page], :per_page => 16).where(approved: true).order("updated_at DESC")
       respond_to do |format|
         format.html
         format.js
+        format.json { render :json => @cards.map(&:attributes) }
       end
     end
 
