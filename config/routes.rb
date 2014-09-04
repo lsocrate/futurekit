@@ -8,12 +8,14 @@ Rails.application.routes.draw do
   match '/logout', to: 'sessions#destroy', via: :delete
   
   resources :categories 
+  resources :follows
+ 
 
   resources :cards do
-    
-    match '/follow',  to: 'cards#follow', via: :post
+  
+  	resources :links  
 
-  	resources :links    
+
   end
 
   #TODO approve inventions still doesnt work
