@@ -22,21 +22,13 @@ class CardsController < ApplicationController
     end
 
   end
-  # GET /cards/1
-  # GET /cards/1.json
-
+  
 
   
-def follow
-  @card = Card.friendly.find(params[:id])
- 
-    if current_card == @card
-      flash[:error] = "You cannot relate the same tech to itself."
-    else
-      current_card.follow(@card)
-      flash[:notice] = "successufle related tech"
-    end
-  
+def relate
+  card = Card.friendly.find(params[:id])
+  card.follow(Card.find(params[:selected_id]))
+  format.html { redirect_to cards_url, notice: 'Card was successfully related.' }
 end
 
 
