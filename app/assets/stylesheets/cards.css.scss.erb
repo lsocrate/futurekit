@@ -1,7 +1,18 @@
+@import url(http://fonts.googleapis.com/css?family=Alegreya);
+
+@font-face {
+    font-family: 'dense';
+    src:font-url('dense.eot');
+    src:font-url('dense.eot?#iefix') format('embedded-opentype'),
+        font-url('dense.ttf') format('truetype'),
+        font-url('dense.woff') format('woff'),
+        font-url('dense.svg#dense') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}   
 
 .card-container {
     margin-bottom: 20px;
-    -webkit-transition: all .1s ease-in-out; 
 }
 
 .card-container:hover {
@@ -100,27 +111,23 @@ left: 0;
     background: none repeat scroll 0 0 #FFFFFF;
     border-radius: 4px;
     color: #444444;
+    font-family: 'Alegreya', serif;
     position: relative;
     .cover{
         height: 170px;
         overflow: hidden;
-        border-radius: 4px 4px 0 0;
         position: relative;
     }
     .name {
-        font-size: 23px;
-        line-height: 28px;
-       
+        font-size: 26px;
         text-align: center;
-        color:#fff;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.65);
-        z-index: 132;
-        text-transform: capitalize;
+        color:#333;
+        font-family: 'dense';
+        text-transform: uppercase;
     }
 }
-.card-container, .front, .back {
-	height: 300px;
-	border-radius: 4px;
+.card-container, .front {
+	height: 385px; 
 }
 
 .card .cover img{
