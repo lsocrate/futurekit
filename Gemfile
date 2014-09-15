@@ -19,6 +19,8 @@ gem "acts_as_follower"
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
+gem 'newrelic_rpm'
+
 
 gem 'acts-as-taggable-on'
 #gem "meta_search"
