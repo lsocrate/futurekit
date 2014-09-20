@@ -120,6 +120,12 @@ GEM
       rack-accept
       rack-mount
       virtus (>= 1.0.0)
+    grape-entity (0.4.4)
+      activesupport
+      multi_json (>= 1.3.2)
+    grape-swagger (0.8.0)
+      grape
+      grape-entity
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -333,6 +339,7 @@ DEPENDENCIES
   friendly_id (~> 5.0.0)
   globalize (~> 4.0.2)
   grape
+  grape-swagger
   jbuilder (~> 2.0)
   jquery-rails
   less-rails
