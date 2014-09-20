@@ -21,6 +21,7 @@ gem 'wkhtmltopdf-binary'
 
 gem 'newrelic_rpm'
 
+gem 'grape'
 
 gem 'acts-as-taggable-on'
 #gem "meta_search"
