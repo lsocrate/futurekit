@@ -26,9 +26,16 @@ class CardsController < ApplicationController
 
   
 def relate
-  card = Card.friendly.find(params[:id])
-  card.follow(Card.find(params[:selected_id]))
-  format.html { redirect_to cards_url, notice: 'Card was successfully related.' }
+  
+ puts params[:selected_card]
+ selected_card = Card.friendly.find(params[:selected_card])
+
+
+ @card.follow(selected_card)
+  #@card.follow(Card.find(params[:selected_id]))
+  respond_to do |format|
+   format.html { redirect_to cards_url, notice: 'Card was related successfully.' }
+  end
 end
 
 

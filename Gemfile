@@ -19,8 +19,6 @@ gem "acts_as_follower"
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
-gem 'newrelic_rpm'
-
 gem 'grape'
 gem 'grape-swagger'
 
