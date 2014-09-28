@@ -1,136 +1,125 @@
 <%= form_for(@card) do |f| %>
-  <% if @card.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@card.errors.count, "error") %> prohibited this card from being saved:</h2>
-      <ul>
-      <% @card.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-
-
-  <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
-  
-  <div class="form-group">
-    <%= f.label :category %><br>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, class: "form-control") %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :tag_list, "Tags (commpa separated)" %><br>
-    <%= f.text_field :tag_list, class: "form-control" %>
-  </div>
-    <% if f.object.photo_url %>
-      <div class="form-group">
-        <%= f.label :photo, class: "form-control file" %> (<%= t("valid_formats") %>: jpg, png)<br>
-        <%= t("change") %>?<%= f.file_field :photo %>
-      </div>
-    <% else %>
-      <div class="form-group">
-        <%= f.label :photo %> (<%= t("valid_formats") %>: jpg, png)<br>
-        <%= f.file_field :photo, class: "form-control file" %>
-      </div>
+<% if @card.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@card.errors.count, "error") %> prohibited this card from being saved:</h2>
+  <ul>
+    <% @card.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
     <% end %>
-
-
-  <div class="form-group">
-    <%= f.label :short_desc %><br>
-    <%= f.text_field :short_desc, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :long_desc %><br>
-    <%= f.text_area :long_desc, class: "form-control" %>
-  </div>
-  
-  <div class="form-group form-inline">
-    <%= f.label :question0 %> <%= f.number_field :question0, class: "form-control" %>
-    </div>
-
-      <div class="form-group form-inline">
-    <%= f.label :question1 %> <%= f.number_field :question1, class: "form-control" %>
-    </div>
-
-      <div class="form-group form-inline">
-    <%= f.label :question2 %> <%= f.number_field :question2, class: "form-control" %>
-    </div>
-
-      <div class="form-group form-inline">
-    <%= f.label :question3 %> <%= f.number_field :question3, class: "form-control" %>
-    </div>
-
-      <div class="form-group form-inline">
-    <%= f.label :question4 %> <%= f.number_field :question4, class: "form-control" %>
-    </div>
-
-      <div class="form-group form-inline">
-    <%= f.label :question5 %> <%= f.number_field :question5, class: "form-control" %>
-    </div>
-
-      <div class="form-group form-inline">
-    <%= f.label :question6 %> <%= f.number_field :question6, class: "form-control" %>
-    </div>
-
-      <div class="form-group form-inline">
-    <%= f.label :question7 %> <%= f.number_field :question7, class: "form-control" %>
-    </div>
-
-      <div class="form-group form-inline">
-    <%= f.label :question8 %> <%= f.number_field :question8, class: "form-control" %>
-    </div>
-
-      <div class="form-group form-inline">
-    <%= f.label :question9 %> 
-    <%= f.number_field :question9, class: "form-control" %>
-    </div>
-
-
-  <div class="form-group">
-    <input type="button" value="Calculate Readiness Score" class="btn" onclick="readiness();" />
-   
-
-<%= f.number_field :readiness, class: "form-control", id: "readiness_score" %>
-   
-  </div>
- 
-
-  
-  <div class="actions">
-  <br>
-    <%= f.submit "Submit for Approval", class: "btn btn-primary btn-block btn-lg" %>
-  </div>
+  </ul>
+</div>
 <% end %>
+<div class="form-group">
+  <%= f.label :name %><br>
+  <%= f.text_field :name, class: "form-control" %>
+</div>
 
-<script type="text/javascript">
- function readiness()
+<div class="form-group">
+  <%= f.label :category %><br>
+  <%= f.collection_select(:category_id, Category.all, :id, :name, class: "form-control") %>
+</div>
+<div class="form-group">
+  <%= f.label :tag_list, "Tags (commpa separated)" %><br>
+  <%= f.text_field :tag_list, class: "form-control" %>
+</div>
+<% if f.object.photo_url %>
+<div class="form-group">
+  <%= f.label :photo, class: "form-control file" %> (<%= t("valid_formats") %>: jpg, png)<br>
+  <%= t("change") %>?<%= f.file_field :photo %>
+</div>
+<% else %>
+<div class="form-group">
+  <%= f.label :photo %> (<%= t("valid_formats") %>: jpg, png)<br>
+  <%= f.file_field :photo, class: "form-control file" %>
+</div>
+<% end %>
+<div class="form-group">
+  <%= f.label :short_desc %><br>
+  <%= f.text_field :short_desc, class: "form-control", min: 0, max:10 %>
+</div>
+<div class="form-group">
+  <%= f.label :long_desc %><br>
+  <%= f.text_area :long_desc, class: "form-control", min: 0, max:10 %>
+</div>
+<h1>Readiness Questions</h1>
+<div class="form-group form-inline">
+  <label>Has it been discussed by society?</label>
+  <br>
+  <%= f.number_field :question0, class: "form-control", min: 0, max:10 %>
+</div>
+<div class="form-group form-inline">
+  <label>Is there a working prototype?</label>
+  <br>    <%= f.number_field :question1, class: "form-control" , min: 0, max:10 %>
+</div>
+<div class="form-group form-inline">
+  <%= f.label :question2 %>
+  <br>
+  <%= f.number_field :question2, class: "form-control", min: 0, max:10 %>
+</div>
+<div class="form-group form-inline">
+  <label>
+    Can the technology grow exponentially?
+  </label>
+  <br>    <%= f.number_field :question3, class: "form-control", min: 0, max:10 %>
+</div>
+
+<div class="form-group form-inline">
+  <label>Has it proven financially viable?</label>
+  <br>    <%= f.number_field :question4, class: "form-control", min: 0, max:10 %>
+  </div>
+
+  <div class="form-group form-inline">
+    <label>Has it proven more efficient than existing solutions?</label>
+    <br><%= f.number_field :question5, class: "form-control", min: 0, max:10 %>
+    </div>
+    <div class="form-group form-inline">
+      <label>Is there competition in the market?</label>
+      <br>    <%= f.number_field :question6, class: "form-control", min: 0, max:10 %>
+    </div>
+    <div class="form-group form-inline">
+      <label>Is it technologically viable?</label>
+      <br>    <%= f.number_field :question7, class: "form-control", min: 0, max:10 %>
+    </div>
+    <div class="form-group form-inline">
+      <label>Does the price tend to drop?</label>
+      <br>    <%= f.number_field :question8, class: "form-control", min: 0, max:10 %>
+    </div>
+    <div class="form-group form-inline">
+      <label>Is there global appeal? </label>
+      <br>
+      <%= f.number_field :question9, class: "form-control" , min: 0, max:10 %>
+    </div>
+    <div class="form-group">
+      <input type="button" value="Calculate Readiness Score" class="btn btn-primary btn-block" onclick="readiness();" />
+      
+      <%= f.number_field :readiness, class: "form-control", id: "readiness_score" %>
+      
+    </div>
+    
+    
+    <div class="actions">
+      <br>
+      <%= f.submit "Submit for Approval", class: "btn btn-primary btn-block btn-lg" %>
+    </div>
+    <% end %>
+    <script type="text/javascript">
+    function readiness()
     {
-   var q0 = document.getElementById('card_question0').value;
-   var q1 = document.getElementById('card_question1').value;
-   var q2 = document.getElementById('card_question2').value;
-   var q3 = document.getElementById('card_question3').value;
-   var q4 = document.getElementById('card_question4').value;
-   var q5 = document.getElementById('card_question5').value;
-   var q6 = document.getElementById('card_question6').value;
-   var q7 = document.getElementById('card_question7').value;
-   var q8 = document.getElementById('card_question8').value;
-   var q9 = document.getElementById('card_question9').value;
- 
-
-        // Add them together and display
-        var sum = (parseInt(q0) + parseInt(q1) + parseInt(q2)
-        + parseInt(q3) + parseInt(q4) + parseInt(q5) +
-        parseInt(q6) + parseInt(q7) + parseInt(q8) + parseInt(q9)) / 10;
-
-
-
-        document.getElementById('readiness_score').value = Math.ceil(sum);
-
-  }
-
-</script>
+    var q0 = document.getElementById('card_question0').value;
+    var q1 = document.getElementById('card_question1').value;
+    var q2 = document.getElementById('card_question2').value;
+    var q3 = document.getElementById('card_question3').value;
+    var q4 = document.getElementById('card_question4').value;
+    var q5 = document.getElementById('card_question5').value;
+    var q6 = document.getElementById('card_question6').value;
+    var q7 = document.getElementById('card_question7').value;
+    var q8 = document.getElementById('card_question8').value;
+    var q9 = document.getElementById('card_question9').value;
+    
+    // Add them together and display
+    var sum = (parseInt(q0) + parseInt(q1) + parseInt(q2)
+    + parseInt(q3) + parseInt(q4) + parseInt(q5) +
+    parseInt(q6) + parseInt(q7) + parseInt(q8) + parseInt(q9)) / 10;
+    document.getElementById('readiness_score').value = Math.ceil(sum);
+    }
+    </script>
