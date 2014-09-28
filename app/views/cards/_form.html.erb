@@ -49,28 +49,55 @@
     <%= f.text_area :long_desc, class: "form-control" %>
   </div>
   
-  <div class="form-group">
-    <%= f.label :readiness %><br>
+  <div class="form-group form-inline">
+    <%= f.label :question0 %> <%= f.number_field :question0, class: "form-control" %>
+    </div>
 
-<div class="row">
-<div class="col-md-4">
-Low = Scientifically viable = concept
+      <div class="form-group form-inline">
+    <%= f.label :question1 %> <%= f.number_field :question1, class: "form-control" %>
+    </div>
 
-</div>
-<div class="col-md-4">
-Medium = Technologically viable = in development
-</div>
-<div class="col-md-4">
-High = Financially viable = product
-</div>
-<div class="col-md-12">
-<br>
-    <input type="range" name="readiness" min="0" step="0.1" max="1">
-</div>
-</div>
+      <div class="form-group form-inline">
+    <%= f.label :question2 %> <%= f.number_field :question2, class: "form-control" %>
+    </div>
+
+      <div class="form-group form-inline">
+    <%= f.label :question3 %> <%= f.number_field :question3, class: "form-control" %>
+    </div>
+
+      <div class="form-group form-inline">
+    <%= f.label :question4 %> <%= f.number_field :question4, class: "form-control" %>
+    </div>
+
+      <div class="form-group form-inline">
+    <%= f.label :question5 %> <%= f.number_field :question5, class: "form-control" %>
+    </div>
+
+      <div class="form-group form-inline">
+    <%= f.label :question6 %> <%= f.number_field :question6, class: "form-control" %>
+    </div>
+
+      <div class="form-group form-inline">
+    <%= f.label :question7 %> <%= f.number_field :question7, class: "form-control" %>
+    </div>
+
+      <div class="form-group form-inline">
+    <%= f.label :question8 %> <%= f.number_field :question8, class: "form-control" %>
+    </div>
+
+      <div class="form-group form-inline">
+    <%= f.label :question9 %> 
+    <%= f.number_field :question9, class: "form-control" %>
     </div>
 
 
+  <div class="form-group">
+    <input type="button" value="Calculate Readiness Score" class="btn" onclick="readiness();" />
+   
+
+<%= f.number_field :readiness, class: "form-control", id: "readiness_score" %>
+   
+  </div>
  
 
   
@@ -81,21 +108,29 @@ High = Financially viable = product
 <% end %>
 
 <script type="text/javascript">
+ function readiness()
+    {
+   var q0 = document.getElementById('card_question0').value;
+   var q1 = document.getElementById('card_question1').value;
+   var q2 = document.getElementById('card_question2').value;
+   var q3 = document.getElementById('card_question3').value;
+   var q4 = document.getElementById('card_question4').value;
+   var q5 = document.getElementById('card_question5').value;
+   var q6 = document.getElementById('card_question6').value;
+   var q7 = document.getElementById('card_question7').value;
+   var q8 = document.getElementById('card_question8').value;
+   var q9 = document.getElementById('card_question9').value;
+ 
 
-$(document).ready(function(){
-      var preview = $(".upload-preview img");
-
-      $(".file").change(function(event){
-        var input = $(event.currentTarget);
-        var file = input[0].files[0];
-        var reader = new FileReader();
-        reader.onload = function(e){
-          image_base64 = e.target.result;
-          preview.attr("src", image_base64);
-        };
-        reader.readAsDataURL(file);
-      });
+        // Add them together and display
+        var sum = (parseInt(q0) + parseInt(q1) + parseInt(q2)
+        + parseInt(q3) + parseInt(q4) + parseInt(q5) +
+        parseInt(q6) + parseInt(q7) + parseInt(q8) + parseInt(q9)) / 10;
 
 
-    });
-</scrip>
+
+        document.getElementById('readiness_score').value = Math.ceil(sum);
+
+  }
+
+</script>

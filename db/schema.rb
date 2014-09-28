@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901221001) do
+ActiveRecord::Schema.define(version: 20140928144919) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 20140901221001) do
     t.boolean  "approved"
     t.integer  "category_id"
     t.string   "slug"
+    t.integer  "question0"
+    t.integer  "question1"
+    t.integer  "question2"
+    t.integer  "question3"
+    t.integer  "question4"
+    t.integer  "question5"
+    t.integer  "question6"
+    t.integer  "question7"
+    t.integer  "question8"
+    t.integer  "question9"
   end
 
   add_index "cards", ["slug"], name: "index_cards_on_slug", unique: true
@@ -99,6 +109,21 @@ ActiveRecord::Schema.define(version: 20140901221001) do
   end
 
   add_index "links", ["card_id"], name: "index_links_on_card_id"
+
+  create_table "readinesses", force: true do |t|
+    t.integer  "question1"
+    t.integer  "question2"
+    t.integer  "question3"
+    t.integer  "question4"
+    t.integer  "question5"
+    t.integer  "question6"
+    t.integer  "question7"
+    t.integer  "question8"
+    t.integer  "question9"
+    t.integer  "card_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

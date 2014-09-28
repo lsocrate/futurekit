@@ -143,6 +143,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:name, :short_desc, :tag_list, :long_desc, :category, :readiness, :photo, :approved, :category_id, category_attributes: [:name])
+      params.require(:card).permit(:name, :short_desc, :question0, :question1, :question2, :question3, :question4, :question5, :question6, :question7, :question8, :question9, :tag_list, :long_desc, :category, :readiness, :photo, :approved, :category_id, category_attributes: [:name])
     end
   end
