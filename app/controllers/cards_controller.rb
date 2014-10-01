@@ -6,24 +6,29 @@ class CardsController < ApplicationController
   def index
     if params[:search]
       @cards = Card.paginate(:page => params[:page], :per_page => 16).search(params[:search]).order("updated_at DESC")
-      respond_to do |format|
-        format.html
-        format.js
-        format.json { render :json => @cards.map(&:attributes) }
-
-      end
+      
     else
       @cards =  Card.paginate(:page => params[:page], :per_page => 16).where(approved: true).order("updated_at DESC")
-      respond_to do |format|
-        format.html
-        format.js
-        format.json { render :json => @cards.map(&:attributes) }
-      end
+      
     end
 
+    respond_to do |format|
+      format.js
+      format.json { render :json => @cards.map(&:attributes) }
+      format.html
+      format.pdf do
+      render :pdf => "card",
+       :page_height                    => 85,
+       :page_width                     => 55,
+       :template => 'cards/print.html.erb',
+       :margin => {:top                => 0,
+                           :bottom             => 0,
+                           :left               => 0,
+                           :right              => 0}
+     end
+    end
   end
   
-
   
 def relate
   
@@ -47,12 +52,6 @@ end
       @link = Link.new
       @links = @card.links
       respond_to :html
-
-     # render :pdf => "card",
-     #   :page_height                    => 85,
-     #   :page_width                     => 55
-
-
    end
  end
 

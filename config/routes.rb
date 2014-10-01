@@ -21,7 +21,10 @@ Rails.application.routes.draw do
 
   #TODO approve inventions still doesnt work
   get 'approve', :controller => 'cards'
-  root 'cards#index'
+  root 'cards#index'  
+
+  get 'pdf_print' => 'cards#pdf_print'
+
 
   get 'to_approve' => 'cards#to_approve'
   get 'jackpot' => 'cards#jackpot'
