@@ -8,20 +8,7 @@
       <div class="col-md-5">
         <img src="<%= @card.photo_url(:display) %>" class="img-responsive img-card-thumb" id="main-image"/>
 
-           <script type="text/javascript">
-            var colorThief = new ColorThief();
-
-            var i = $('.img-card-thumb');
-            // Above is fine but you have to then do something like this..
-            var image = i[0];
-            // Above properly gets the HTMLImageElement.
-            var c = colorThief.getColor( image );
-            console.log(c);
-
-            
-
-            
-     </script>
+          
 
 
         <br>
@@ -31,13 +18,7 @@
       </div>
       <div class="col-md-7">
         <h1 class="card-title"><%= @card.name %></h1>
-        <script type="text/javascript">
-          
 
-console.log("#" + ((1 << 24) + (c[0] << 16) + (c[1] << 8) + c[2]).toString(16).slice(1));
-var finalColor = "#" + ((1 << 24) + (c[0] << 16) + (c[1] << 8) + c[2]).toString(16).slice(1);
-          $('.card-title').css('color', finalColor);
-        </script>
         <p class="pull-right"> <%= link_to 'Edit', edit_card_path(@card) %> </p>
         
         <br>
@@ -112,6 +93,22 @@ var finalColor = "#" + ((1 << 24) + (c[0] << 16) + (c[1] << 8) + c[2]).toString(
       </script>
       <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
       <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      <script type="text/javascript">
+          
+             var colorThief = new ColorThief();
+
+            var i = $('.img-card-thumb');
+            // Above is fine but you have to then do something like this..
+            var image = i[0];
+            // Above properly gets the HTMLImageElement.
+            var c = colorThief.getColor( image );
+            console.log(c);
+
+
+console.log("#" + ((1 << 24) + (c[0] << 16) + (c[1] << 8) + c[2]).toString(16).slice(1));
+var finalColor = "#" + ((1 << 24) + (c[0] << 16) + (c[1] << 8) + c[2]).toString(16).slice(1);
+          $('.card-title').css('color', finalColor);
+        </script>
     </div>
   </div>
 </div>

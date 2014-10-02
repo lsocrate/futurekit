@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get 'approve', :controller => 'cards'
   root 'cards#index'  
 
-  get 'pdf_print' => 'cards#pdf_print'
+  get 'print' => 'cards#print'
 
 
   get 'to_approve' => 'cards#to_approve'

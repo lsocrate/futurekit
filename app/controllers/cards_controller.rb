@@ -29,6 +29,25 @@ class CardsController < ApplicationController
     end
   end
   
+
+
+  def print
+    @cards =  Card.all.where(approved: true)
+
+    respond_to do |format|
+      format.pdf do
+        render :pdf => "card",
+         :page_height                    => 85,
+         :page_width                     => 55,
+         :template => 'cards/print.html.erb',
+         :margin => { :top                => 0,
+                      :bottom             => 0,
+                      :left               => 0,
+                      :right              => 0}
+       end
+    end
+
+  end
   
 def relate
   
