@@ -6,14 +6,38 @@
   <div class="row card-full">
    
       <div class="col-md-5">
-        <img src="<%= @card.photo_url(:display) %>" class="img-responsive img-card-thumb"/>
+        <img src="<%= @card.photo_url(:display) %>" class="img-responsive img-card-thumb" id="main-image"/>
+
+           <script type="text/javascript">
+            var colorThief = new ColorThief();
+
+            var i = $('.img-card-thumb');
+            // Above is fine but you have to then do something like this..
+            var image = i[0];
+            // Above properly gets the HTMLImageElement.
+            var c = colorThief.getColor( image );
+            console.log(c);
+
+            
+
+            
+     </script>
+
+
         <br>
         <% @card.tag_list.each do |tag| %>
         <span class="tags"> <%= tag %></span>
         <% end %>
       </div>
       <div class="col-md-7">
-        <h1><%= @card.name %></h1>
+        <h1 class="card-title"><%= @card.name %></h1>
+        <script type="text/javascript">
+          
+
+console.log("#" + ((1 << 24) + (c[0] << 16) + (c[1] << 8) + c[2]).toString(16).slice(1));
+var finalColor = "#" + ((1 << 24) + (c[0] << 16) + (c[1] << 8) + c[2]).toString(16).slice(1);
+          $('.card-title').css('color', finalColor);
+        </script>
         <p class="pull-right"> <%= link_to 'Edit', edit_card_path(@card) %> </p>
         
         <br>
@@ -53,7 +77,7 @@
   <%= submit_tag("Relate") %>
 <% end %>
 
-     
+
 
 <br>
 
