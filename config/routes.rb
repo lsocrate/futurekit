@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # mount PgHero::Engine, at: "pghero"
-  mount API::Base => '/api'
+  # mount API::Base => '/api'
 
   
   resources :sessions, only: :create
