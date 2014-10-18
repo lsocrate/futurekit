@@ -1,116 +1,83 @@
 <% Globalize.with_locale(I18n.locale) do %>
- 
-
 <% content_for :title, @card.name + " - " %>
+
 <div class="container">
-  <div class="row card-full">
-   
-      <div class="col-md-5">
-        <img src="<%= @card.photo_url(:display) %>" class="img-responsive img-card-thumb" id="main-image"/>
+  <div class="row" id="main-content">
 
-          
-
-
-        <br>
-        <% @card.tag_list.each do |tag| %>
-        <span class="tags"> <%= tag %></span>
-        <% end %>
-      </div>
-      <div class="col-md-7">
-        <h1 class="card-title"><%= @card.name %></h1>
-
-        <p class="pull-right"> <%= link_to 'Edit', edit_card_path(@card) %> </p>
-        
-        <br>
-        <p class="lead">  <%= @card.short_desc %></p>
-        <p>
-        <%= @card.category %>
-        <%= @card.long_desc %>
-        </p>
-        <p>
-        <strong>Readiness:</strong>
-        <%= @card.readiness %>
-        </p>
-        <hr>
-        <p>Useful Links</p>
-        <ul class="list-unstyled">
-          <% @links.each do |link| %>
-          <li><%= link.link_type %> - <a href="<%= link.url %>" target="_blank"><%= link.name %></a></li>
-          <% end %>
-        </ul>
-        
-      </div>
-    </div>
-    <div class="row">
-    <div class="col-md-12 text-center">
-      <h3>Related Techs: <%= @card.followers_count %></h3>
-      </div>
-       <div class="col-md-12">
- <% @card.followers.each do |cardf| %>
-        <%= render 'card', card: cardf %>
+    <div class="col-md-5">
+      <img src="<%= @card.photo_url(:display) %>" class="img-responsive img-card-thumb" id="main-image" style="  -webkit-box-shadow: 0 0 6px rgba(22,22,22,.5);
+      box-shadow: 0 0 6px rgba(22,22,22,.5);"/>
+      <br>
+      <% @card.tag_list.each do |tag| %>
+      <span class="tags"> <%= tag %></span>
       <% end %>
-      </div>
-       <div class="col-md-12">
+    </div>
+    
+    <div class="col-md-7">
+      <h1 class="card-title"><%= @card.name %></h1>
+      <br>
+      <p class="lead">  <%= @card.short_desc %></p>
+      <p>
+      <%= @card.category %>
+      <%= @card.long_desc %>
+      </p>
+      <p>
+      <strong>Readiness:</strong>
+      <%= @card.readiness %>
+      </p>
       <hr>
-
-<%= form_tag(controller: "cards", action: "relate") do %>
-  <%= select("selected_card", "selected_id", Card.all.where(approved: true).collect {|p| [ p.name, p.id ] }) %>
-  <%= submit_tag("Relate") %>
-<% end %>
-
-
-
-<br>
-
-   <div>
-             
-          </div>
-
-      <!--
-      <div class="row">
-        <div class="col-md-6">
-          <%= form_for [@card, @link] do |f| %>
-          <span>
-          <%= f.text_field :name, :class => "form-control", placeholder: "Name" %>
-          <%= f.text_field :url, :class => "form-control",  placeholder: "URL" %>
-          <%= f.select :link_type, "<option>1. Further reading</option><option>2. Example</option><option>3. People</option><option>4. Photograph</option>".html_safe  %> <br>
-          <%= f.submit "Add Link", :class => "btn btn-default btn-block" %>
-          </span>
-          <% end %>
-        </div>
-      </div>
-      -->
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-      var disqus_shortname = 'futurekit'; // required: replace example with your forum shortname
-      /* * * DON'T EDIT BELOW THIS LINE * * */
-      (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-      <script type="text/javascript">
-          
-             var colorThief = new ColorThief();
-
-            var i = $('.img-card-thumb');
-            // Above is fine but you have to then do something like this..
-            var image = i[0];
-            // Above properly gets the HTMLImageElement.
-            var c = colorThief.getColor( image );
-            console.log(c);
-
-
-console.log("#" + ((1 << 24) + (c[0] << 16) + (c[1] << 8) + c[2]).toString(16).slice(1));
-var finalColor = "#" + ((1 << 24) + (c[0] << 16) + (c[1] << 8) + c[2]).toString(16).slice(1);
-          $('.card-title').css('color', finalColor);
-        </script>
+      <p>Useful Links</p>
+      <ul class="list-unstyled">
+        <% @links.each do |link| %>
+        <li><%= link.link_type %> - <a href="<%= link.url %>" target="_blank"><%= link.name %></a></li>
+        <% end %>
+      </ul>
     </div>
   </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h3>Related Techs: <%= @card.followers_count %></h3>
+    </div>
+    <div class="col-md-12">
+      <% @card.followers.each do |cardf| %>
+      <%= render 'card', card: cardf %>
+      <% end %>
+    </div>
+    
+  </div>
+</div>
+<!--
+<div class="row">
+  <div class="col-md-6">
+    <%= form_for [@card, @link] do |f| %>
+    <span>
+    <%= f.text_field :name, :class => "form-control", placeholder: "Name" %>
+    <%= f.text_field :url, :class => "form-control",  placeholder: "URL" %>
+    <%= f.select :link_type, "<option>1. Further reading</option><option>2. Example</option><option>3. People</option><option>4. Photograph</option>".html_safe  %> <br>
+    <%= f.submit "Add Link", :class => "btn btn-default btn-block" %>
+    </span>
+    <% end %>
+  </div>
+</div>
+<script type="text/javascript">
+var colorThief = new ColorThief();
+var i = $('.img-card-thumb');
+// Above is fine but you have to then do something like this..
+var image = i[0];
+// Above properly gets the HTMLImageElement.
+var c = colorThief.getColor( image );
+console.log(c);
+console.log("#" + ((1 << 24) + (c[0] << 16) + (c[1] << 8) + c[2]).toString(16).slice(1));
+var finalColor = "#" + ((1 << 24) + (c[0] << 16) + (c[1] << 8) + c[2]).toString(16).slice(1);
+$('.card-title').css('color', finalColor);
+</script>
+-->
+
+
+</div>
+</div>
 </div>
 </div>
 <% end %>

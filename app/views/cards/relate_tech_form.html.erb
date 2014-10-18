@@ -1,0 +1,8 @@
+  <div class="col-md-12">
+      <hr>
+      <%= form_tag(controller: "cards", action: "relate") do %>
+      <%= select("selected_card", "selected_id", Card.all.where(approved: true).collect {|p| [ p.name, p.id ] }) %>
+      <%= submit_tag("Relate") %>
+      <% end %>
+      <br>
+     </div>

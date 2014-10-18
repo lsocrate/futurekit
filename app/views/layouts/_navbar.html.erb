@@ -8,7 +8,9 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<%= root_path %>"><strong>FUTURE</strong>DECK</a>
+      <a class="navbar-brand" href="<%= root_path %>">
+        <img src="<%= image_path "fd-logo.svg" %>" style="height:30px; margin-top:-2px;">  <strong>FUTURE</strong>DECK
+      </a>
     </div>
     
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -30,9 +32,9 @@
             <% end %>
           </div>
         </form>
-        <li>
+       <!--  <li>
           <a href="<%= jackpot_path %>"><i class="fa fa-recycle"></i></a>
-        </li>
+        </li> -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <!--<li> <form><a class="btn btn-warning btn-sm navbar-btn" href="/cards/new/"><i class="fa fa-caret-square-o-up"></i> <%= t :submit_tech %></a></form></li> -->

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2>Register</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-xs-12 col-lg-5 col-md-5 col-md-offset-1 col-lg-offset-1">
+      <% if @user.errors.any? %>
+      <div class="alert alert-danger">
+        <% @user.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+        <% end %>
+      </div>
+      <% end %>
+      <form action='/auth/identity/register' method='post' noValidate='noValidate' class="form-horizontal" role="form">
+        <div class="">
+          <label for='email'>Email:</label>
+          <input type='text' class="form-control" id='email' name='email'/>
+        </div>
+        <div class="">
+          <label for='name'>Name:</label>
+          <input type='text' class="form-control" id='name' name='name'/>
+        </div>
+        <div class="">
+          <label for='password'>Password:</label>
+          <input type='password' class="form-control"  id='password' name='password'/>
+        </div>
+        <div class="">
+          <label for='password_confirmation'>Confirm Password:</label>
+          <input type='password' class="form-control" id='password_confirmation' name='password_confirmation'/>
+        </div>
+        <br>
+        <input class="btn btn-default btn-block" type='submit' value="Register" />
+      </form>
+    </div>
+    <div class="col-sm-12 col-lg-5 col-md-5 col-md-offset-1 col-lg-offset-1">
+      <%= raw @helper_text %>
+      <p class="lead">By Registering you Accept Our Terms and Conditions. </p>
+    </div>
+  </div>
+</div>

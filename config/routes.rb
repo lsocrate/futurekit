@@ -1,17 +1,27 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # mount PgHero::Engine, at: "pghero"
-  # mount API::Base => '/api'
+  mount API::Base => '/api'
 
   
   resources :sessions, only: :create
   match '/login',  to: 'sessions#new', via: :get
   match '/logout', to: 'sessions#destroy', via: :delete
-  match '/relate' => 'cards#relate', via: :post
+  
+
+  match "/auth/failure" => "sessions#new", via: :get
+  match "/auth/identity/register" => "users#new", via: :post
+  
+  match '/auth/:provider/callback', to: 'sessions#create', via: :get #omniauth route
+  match '/signup', to: 'users#new', via: :get
+
 
   resources :categories 
   resources :follows
  
+  resources :users #needed by omniauth-identity
+
+  resources :password_resets, except: :destroy
 
   resources :cards do
 

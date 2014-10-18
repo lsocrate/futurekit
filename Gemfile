@@ -23,6 +23,13 @@ gem 'grape'
 gem 'grape-swagger'
 
 
+gem 'rails_best_practices'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-identity'
+
+
+
 gem 'acts-as-taggable-on'
 #gem "meta_search"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
@@ -40,6 +47,7 @@ group :development do
 	gem 'spring'  
 	gem 'better_errors'
 	gem 'quiet_assets'
+	gem 'annotate'
 end
 
 gem 'rails_12factor', group: :production
@@ -48,4 +56,3 @@ gem "activeadmin-globalize", github: 'stefanoverna/activeadmin-globalize', branc
 gem 'dotenv-rails'
 gem 'yaml_db'
 gem 'bcrypt', '~> 3.1.7'
-gem 'annotate', group: :development
