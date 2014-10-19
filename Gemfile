@@ -11,24 +11,17 @@ gem 'coffee-rails', '~> 4.0.0'
 gem "therubyracer"
 gem 'carrierwave'
 gem 'friendly_id', '~> 5.0.0'
-gem 'pghero'
+#gem 'pghero'
 #gem 'fog'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem "acts_as_follower"
-
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-
 gem 'grape'
 gem 'grape-swagger'
-
-
-gem 'rails_best_practices'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-identity'
-
-
 
 gem 'acts-as-taggable-on'
 #gem "meta_search"
@@ -48,6 +41,7 @@ group :development do
 	gem 'better_errors'
 	gem 'quiet_assets'
 	gem 'annotate'
+	gem 'rails_best_practices'
 end
 
 gem 'rails_12factor', group: :production
