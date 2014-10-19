@@ -1,6 +1,5 @@
-class User < ActiveRecord::Base
-	 
- 
+class User < OmniAuth::Identity::Models::ActiveRecord
+	
 
   validates :email, presence: true,
             length: { maximum: 75 },
@@ -59,6 +58,16 @@ class User < ActiveRecord::Base
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
+  end
+
+  
+  def generate_auth_token
+    begin
+      self.auth_token = SecureRandom.urlsafe_base64
+      # self.password_reset_sent_at = Time.zone.now #to be added
+      save!
+      return self.auth_token
+    end
   end
 
   def generate_token_inner(column)
