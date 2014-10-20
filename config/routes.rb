@@ -12,8 +12,9 @@ Rails.application.routes.draw do
 
   #sessions always be so crazy
   resources :sessions, only: :create
-  match '/login',  to: 'sessions#new', via: :get
-  match '/logout', to: 'sessions#destroy', via: :delete
+  
+    match '/login',  to: 'sessions#new', via: :get
+    match '/logout', to: 'sessions#destroy', via: :delete
   match "/auth/failure" => "sessions#new", via: :get
   match "/auth/identity/register" => "users#new", via: :post
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
