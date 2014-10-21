@@ -22,6 +22,7 @@ gem 'grape-swagger'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-identity'
+gem 'angularjs-rails'
 
 gem 'acts-as-taggable-on'
 #gem "meta_search"

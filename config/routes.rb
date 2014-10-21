@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :images
+
   ActiveAdmin.routes(self)
   # mount PgHero::Engine, at: "pghero"
   mount API::Base => '/api'
