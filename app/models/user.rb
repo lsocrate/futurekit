@@ -20,6 +20,8 @@ class User < OmniAuth::Identity::Models::ActiveRecord
   before_save { email.downcase! }
   before_create :create_remember_token
 
+  acts_as_follower
+
   def self.create_with_omniauth(auth)
     # you should handle here different providers data
     # eg. case auth['provider'] ..

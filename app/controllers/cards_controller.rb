@@ -74,11 +74,9 @@ end
    end
  end
 
-
-
-
-
-
+def follow
+  current_user.follow(@card)
+end
 
  def new
   @card = Card.new
