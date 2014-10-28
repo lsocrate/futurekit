@@ -88,4 +88,11 @@ body {
 }
 #footer a {color:#fff;}
 
-
+.modal-content{
+	font-family: Roboto, Helvetica Neue, Arial, sans-serif;
+ 	background: #434a54;
+	color: #f5f7fa;
+}
+.modal-content a{
+	color: #4fc1e9;
+}
