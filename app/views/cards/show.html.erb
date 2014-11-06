@@ -32,6 +32,18 @@
         <li><%= link.link_type %> - <a href="<%= link.url %>" target="_blank"><%= link.name %></a></li>
         <% end %>
       </ul>
+      <div class="row">
+  <div class="col-md-6">
+    <%= form_for [@card, @link] do |f| %>
+    <span>
+    <%= f.text_field :name, :class => "form-control", placeholder: "Name" %>
+    <%= f.text_field :url, :class => "form-control",  placeholder: "URL" %>
+    <%= f.select :link_type, "<option>1. Further reading</option><option>2. Example</option><option>3. People</option><option>4. Photograph</option>".html_safe, {},  {:class => "form-control" } %> 
+    <%= f.submit "Add Link", :class => "btn btn-default btn-block" %>
+    </span>
+    <% end %>
+  </div>
+</div>
 
 
     </div>
@@ -51,18 +63,7 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-6">
-    <%= form_for [@card, @link] do |f| %>
-    <span>
-    <%= f.text_field :name, :class => "form-control", placeholder: "Name" %>
-    <%= f.text_field :url, :class => "form-control",  placeholder: "URL" %>
-    <%= f.select :link_type, "<option>1. Further reading</option><option>2. Example</option><option>3. People</option><option>4. Photograph</option>".html_safe  %> <br>
-    <%= f.submit "Add Link", :class => "btn btn-default btn-block" %>
-    </span>
-    <% end %>
-  </div>
-</div>
+
 <!--
 <script type="text/javascript">
 var colorThief = new ColorThief();
