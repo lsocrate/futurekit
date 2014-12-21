@@ -51,3 +51,4 @@ gem "activeadmin-globalize", github: 'stefanoverna/activeadmin-globalize', branc
 gem 'dotenv-rails'
 gem 'yaml_db'
 gem 'bcrypt', '~> 3.1.7'
+gem 'rack-cors', :require => 'rack/cors'
